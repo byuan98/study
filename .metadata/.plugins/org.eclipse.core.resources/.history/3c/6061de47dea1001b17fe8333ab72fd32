@@ -1,0 +1,40 @@
+package entity;
+
+import java.io.Serializable;
+
+import org.springframework.stereotype.Component;
+
+//创建bean的注解
+@Component()
+public class Teacher implements Serializable{
+    private Integer teaid;
+    private String teaname;
+    
+    {
+        System.out.println("构造代码块");
+    }
+    
+    public Teacher() {
+
+    }
+    public Teacher(Integer teaid, String teaname) {
+        this.teaid = teaid;
+        this.teaname = teaname;
+    }
+    public Integer getTeaid() {
+        return teaid;
+    }
+    public void setTeaid(Integer teaid) {
+        this.teaid = teaid;
+    }
+    public String getTeaname() {
+        return teaname;
+    }
+    public void setTeaname(String teaname) {
+        this.teaname = teaname;
+    }
+
+    public String toString() {
+        return "Teacher [teaid=" + teaid + ", teaname=" + teaname + "]";
+    }
+}

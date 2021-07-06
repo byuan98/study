@@ -1,0 +1,124 @@
+package test;
+
+import java.io.*;
+import java.util.*;
+
+public class TextTwo {
+//    再战IO
+    public static void main(String[] args) throws IOException {
+//        IO流：计算机数据传输的抽象，I：in、O：out
+//        流是一组有序的，有起点和终点的字节集合；是对计算机中数据传输的总称或抽象，即数据在两个设备之间的传输称之为流，流的本质是数据传输
+//        按流的传输方向分类（参考对象：计算机内存）：
+//            输入流：把源文件中的信息读到内存中；
+//                父类：InputStream/Reader
+//            输出流：把内存中的信息写到目的文件中；
+//                父类：OutputStream/Writer
+//        按流操作的基本单位分类：
+//            字节流：传输的基本单位是字节；
+//                父类：InputStream/OutputStream
+//            字符流：传输的基本单位是字符；
+//                父类：Reader/Writer
+//        按流关联的对象分类：
+//            节点流：创建流时关联的时文件对象；
+//            过滤流/装饰流：创建流时关联的时文件对象；
+        
+//        1、字节输入流与字节输出流
+//            字节输入流：FileInputStream
+//            构造方法：
+//                FileInputStream(File file);
+//                FileInputStream(String fileName);
+//            普通方法：
+//                void close();//关闭流释放资源
+//                int read();//一次读取一个字节,到达文件末尾返回-1;
+//                int read(byte[] b);//每次读取一个字符数组,返回读取的字符数组的有效长度;如果已经到达末尾则返回-1
+//                int read(byte[] b, int off, int len);//从此输入流中将最多len个字节的数据读入一个 byte数组中
+//                IO流使用铁打三步：
+//                    1、创建流与源文件关联；
+//                    2、选择读/写方式；
+//                    3、关闭流释放资源；
+//        fileInputStreamTest();
+        
+//            字节输出流：FileOutputStream
+//            构造方法：
+//                FileOutputStream(File file);//
+//                FileOutputStream(File file, boolean append);//
+//                FileOutputStream(String fileName);//
+//                FileOutputStream(String fileName, boolean append);//
+//            普通方法：
+//                void close();//关闭流
+//                void write(byte b);//一次写一个字节
+//                void write(byte[] b);//一次写一个字节数组
+//                void write(byte[] b, int off,int len);//一次写一个字节数组的一部分
+//        fileOutputStreamTest();
+        
+//        2、字符输入流与字符输出流
+//            字符输入流：FileReader
+//            构造方法：
+//                FileReader(File file);
+//                FileReader(String fileName);
+//            普通方法：
+//                void close();//关闭流
+//                String getEncoding();//获取编码集
+//                int read();//每次读取一个字符，如果到达文件末尾，返回-1
+//                int read(char[] cbuf);//读取最多length个字符装入cbuf中，返回本次读取的有效字符，如果达到文件末尾则返回-1
+        fileReaderTest();
+       
+    }
+    private static void fileInputStreamTest() throws IOException {//字节输入流普通方法测试
+        {//1、一次读取一个字符
+            File file=new File("D:\\Code\\FileTest\\FileTest文件夹说明.txt");
+            FileInputStream fin=new FileInputStream(file);
+            while(fin.read()!=-1) {
+                System.out.print((char)fin.read());
+            }
+            fin.close();
+        }
+        
+       
+        {//2、一次读取一个字符数组
+            File file=new File("D:\\Code\\FileTest\\FileTest文件夹说明.txt");
+            FileInputStream fin=new FileInputStream(file);
+            ArrayList<Byte> al=new ArrayList();
+            byte[] by=new byte[1024];
+            while(fin.read(by)!=-1) {
+                System.out.print(new String(by,"utf-8"));
+            }
+            fin.close();
+        }      
+    }
+    
+    private static void fileOutputStreamTest() throws IOException {
+        {//1、一次写一个字节
+            File file=new File("D:\\Code\\FileTest\\1.txt");
+            FileOutputStream fout=new FileOutputStream(file);//FileNotFoundException
+            fout.write(43);
+            fout.write(44);
+            fout.write(45);
+            fout.close();
+        }
+        {//2、一次写一个字节数组
+            File file=new File("D:\\Code\\FileTest\\2.txt");
+            FileOutputStream fout=new FileOutputStream(file);//FileNotFoundException
+            byte[] bytes= {43,44,45,46,47,48};
+            fout.write(bytes);
+            fout.close();
+        }
+        {//3、一次写一个字节数组的一部分
+            File file=new File("D:\\Code\\FileTest\\3.txt");
+            FileOutputStream fout=new FileOutputStream(file);//FileNotFoundException
+            byte[] bytes= {43,44,45,46,47,48};
+            fout.write(bytes,1,3);
+            fout.close();
+        }
+    }
+    
+    private static void fileReaderTest() throws IOException {
+        File file=new File("D:\\Code\\FileTest\\FileTest文件夹说明.txt");
+        FileReader fin=new FileReader(file);//FileNotFoundException
+        int i;
+        while((i=fin.read())!=-1) {//fin.read()//IOException
+            System.out.println((char)i);
+        }
+    }
+    
+}

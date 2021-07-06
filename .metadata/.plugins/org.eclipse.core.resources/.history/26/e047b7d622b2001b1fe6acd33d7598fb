@@ -1,0 +1,9 @@
+package com.godfery.util;
+
+public class JdbcUtil {
+
+    
+    static {
+        
+    }
+}

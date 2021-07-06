@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="functions" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  "123abc".length= ${functions:length("123abc456")}<br/><!-- "123abc".length= 9 -->
+  "123abc"是否包含23a: ${functions:contains("123abc", "23a")}<br/><!-- "123abc"是否包含23a: true -->
+  将aBc123转换为大写: ${functions:toUpperCase("aBc123")}<br/><!-- 将aBc123转换为大写: ABC123 -->
+  将AbC123转换为小写: ${functions:toLowerCase("AbC123")}<br/><!-- 将AbC123转换为小写: abc123 -->
+  判断abc是否以bc结尾: ${functions:endsWith("abc", "bc")}<br/><!-- 判断abc是否以bc结尾: true -->
+  判断abc是否以abc开头: ${functions:startsWith("abc", "abc")}<br/><!-- 判断abc是否以abc开头: true -->
+  获取abc第一次出现d的位置: ${functions:indexOf("abc", "bc")}<br/><!-- 获取abc第一次出现d的位置: -1 -->
+</body>
+</html>

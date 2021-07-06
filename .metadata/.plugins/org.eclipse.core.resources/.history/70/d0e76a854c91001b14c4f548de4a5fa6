@@ -1,0 +1,29 @@
+package servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/test/getallstudentpaging")
+public class GetAllStudentPaging extends HttpServlet{
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer pageNumber; 
+        Integer pageSize=10;//每页记录的数量
+        try {
+            pageNumber=new Integer(req.getParameter("pageNumber"));
+        }catch(NumberFormatException e) {//如果获取不到数字
+            pageNumber=1;
+        }
+        
+    }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
+    
+}

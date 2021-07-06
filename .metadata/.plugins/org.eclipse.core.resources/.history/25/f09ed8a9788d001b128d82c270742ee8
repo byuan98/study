@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="entity.Student"%>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP之JSTL表达式</title>
+</head>
+<body>
+  <!-- JSTL之核心标签库：core -->
+  <!-- 1、url标签 -->
+    <!-- url标签作用1：给value指定的路径前加项目路径 -->
+      <core:url value="/1.txt" /><br/> <!-- /day66web/1.txt -->
+    <!-- url标签作用2：在指定域中添加一个名字为xxx的属性，值为/day66web/xxx -->
+      <core:url value="/2.txt" var="url1" scope="session"/>
+      ${sessionScope.url1}<br> <!-- /day66web/2.txt -->
+  
+  <!-- 2、set标签 -->
+    <!-- set标签作用：在指定域中添加属性；等价于setAttribute(name, value) -->
+      <core:set scope="session" var="session_name1" value="session_value1"/>
+      <%
+        session.setAttribute("session_name2", "session_value2");
+      %>
+      session_name1=${sessionScope.session_name1}<br/>
+      session_name2=${sessionScope.session_name2}<br/>
+  <!-- 3、out标签 -->
+    <!-- outb标签作用：输出域属性 -->
+    <core:set value="<script type='text/javascript'> alert('Godfery') </srcipt>" var="text1"/>
+    <core:out value="${text1}" default="默认值" escapeXml="true"/><!-- 无弹窗 -->
+    <core:out value="${text1}" default="默认值" escapeXml="false"/><!-- 有弹窗 -->
+      
+</body>
+</html>

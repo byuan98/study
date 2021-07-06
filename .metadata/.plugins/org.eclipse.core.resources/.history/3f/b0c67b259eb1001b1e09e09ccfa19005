@@ -1,0 +1,20 @@
+package com.godfery.entity;
+
+import java.io.Serializable;
+
+public class User implements Serializable{
+    private String name;//姓名
+    private String sex;//性别
+    private String age;//年龄
+    private String work;//工作
+    private String sleep_time;//睡眠时间
+    private String reason;//睡眠影响因素
+    private String sleep_time_begin;//几点开始睡觉
+    private String sleep_time_long;//多久入睡
+    private String is_sleep;//醒了以后能否再睡
+    private String is_big;//压力是否感觉大
+    private String is_reson;//睡眠不好对你造成的影响
+    private String way;//睡不着采取的措施
+
+    
+}

@@ -1,0 +1,24 @@
+package test;
+
+import java.util.concurrent.Callable;
+
+public class TestOne {
+
+    public static void main(String[] args) {
+
+    }
+
+}
+
+class MyCallable implements Callable<Integer>{//实现Callable接口,设定返回值类型为Integer
+    public Integer call() throws Exception {
+        Integer sum=0;
+        for(Integer number=1;number<=100;number++) {
+            Thread.sleep(100);
+            System.out.println("创建线程方式3:"+(sum+=number));
+        }
+        return sum;
+    }
+    
+    
+}

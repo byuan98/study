@@ -1,0 +1,26 @@
+package com.godfery.random;
+
+public interface Random {
+
+    public String randomName();//随机姓名
+    
+    public String randomSex();//随机性别
+    
+    public String[] randomAgeAndWork();//随机年龄和工作
+    
+    public String randomSleepTime();//随机随眠时间
+    
+    public String randomReason();//随机睡眠影响因素
+    
+    public String randomSleepTimeBegin();//随机几点开始睡觉
+    
+    public String randomSleepTimeLong();//随机多久入睡
+    
+    public String randomIsSleep();//随机醒了以后是否还能入睡
+    
+    public String randomIsBig();//随机压力是否感觉大
+
+    public String randomIsReson();//随机睡眠不好对你造成的影响
+    
+    public String randomWay();//随机睡不着采取的措施
+}

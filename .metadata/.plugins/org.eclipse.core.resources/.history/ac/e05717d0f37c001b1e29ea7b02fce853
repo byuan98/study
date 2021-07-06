@@ -1,0 +1,20 @@
+package test;
+
+import java.io.*;
+
+public class TestFour {
+
+    public static void main(String[] args) {
+        
+
+    }
+    
+    private static void copyFile(String sourceFilePath,String purposeFilePath) {
+        File source=new File(sourceFilePath);//源文件对象
+        File purpose=new File(purposeFilePath);//目的文件对象
+        
+        if(source.exists()==false) {//如果源文件不存在则引发异常
+            throw new RuntimeException("源文件不存在");
+        }
+    }
+}

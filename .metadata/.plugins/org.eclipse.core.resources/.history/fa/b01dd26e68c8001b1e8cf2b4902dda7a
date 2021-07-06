@@ -1,0 +1,9 @@
+package cn.godfery.patterns.creational;
+/**
+ * 设计模式之创建型模式之工厂模式
+ * 
+ * 在工厂模式中通过使用一个共同的接口来指向新创建的对象
+ * */
+public interface FactoryPattern {
+
+}

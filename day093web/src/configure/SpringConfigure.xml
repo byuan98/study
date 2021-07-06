@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+    <!-- xsd文件对当前xml文件进行语法检查 ：规定有哪些标签 有哪些属性 标签的嵌套关系-->
+    
+    <!-- 通过context标签指定扫描目标类和通知类包 -->
+    <context:component-scan base-package="entity,advice"/> <!-- 多个包用逗号隔开 -->
+    
+    <!-- 通过aop标签实现自动织入 -->
+    <aop:aspectj-autoproxy/>
+</beans>

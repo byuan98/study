@@ -1,0 +1,105 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JQuery之选择器</title>
+    <script type="text/javascript" src="<core:url value='/js/jquery-1.6.4.min.js'/>"></script>
+  </head>
+  <body>
+<style type="text/css">
+div,span,p{
+    width:140px;
+    height:140px;
+    margin:5px;
+    background:#aaa;
+    border:#000 1px solid;
+    float:left;
+    font-size:17px;
+}
+div.bgRed { 
+    width:55px;
+    height:55px;
+    background-color: #aaa;
+    font-size:12px;
+}
+div.hide { 
+    display:none;
+}
+</style>
+<script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){   
+    //手动重置
+    $("#reset").click(function(){
+        $("*").removeAttr("style");
+        $(".hide").css("display","none");
+    });
+    //动画
+    dongHua();
+    
+    $("#btn1").click(function(){
+        //改变第一个div
+        $("div:first").css("background-color","#aaff33");
+        //改变最后一个div
+        $("div:last").css("background-color","#aaff33");
+        //改变第三个div
+        $("div:eq(2)").css("background-color","#aa33ff");
+        //改变前四个div
+        $("div:lt(4)").css("color","blue");
+    });
+    
+    $("#btn2").click(function(){
+        //设置偶数索引的div
+        $("div:even").css("background-color","#aaff33");
+        //设置奇数索引的div
+        $("div:odd").css("background-color","#aa33ff");
+        
+    });
+    $("#btn3").click(function(){
+        //设置class不等于bgRed的div
+        //$("div:not('.bgRed')").css("background-color","#aaff33");
+        //设置标题标签
+        $(":header").css("background-color","#aaff33");
+        //正在执行动画的元素
+        $(":animated").css("background-color","#33ff33");
+        //获取索引为基数后  重新排列后  下标为1的元素
+        $("div:odd:eq(1)").css("background-color","#aa33ff");
+        $("div:eq(3)").css("color","red");
+    });
+});
+function dongHua(){
+    $("#mover").slideToggle(3000,dongHua);
+}
+</script>
+</head>
+
+<body>
+  <input type="button" id="reset" value="手动重置" />
+  <h3>过滤选择器--基本过滤.</h3>
+  
+  <!-- 控制按钮 -->
+  <input type="button" value="改变第一个<div>元素" id="btn1"/>  
+  <input type="button" value="改变class不为one的所有div元素" id="btn2"/>
+  <input type="button" value="改变索引值为偶数的div元素" id="btn3"/>
+  <input type="button" value="改变索引值为大于 3 且为奇数的 div元素" id="btn4"/>
+  <input type="button" value="改变当前正在执行动画的所有元素" id="btn5"/>
+  <br><br>
+  <!-- 测试的元素 -->
+  <div class="one" id="one" >
+      id为one,class为one的div
+      <div class="bgRed">class为bgRed的div</div>
+  </div>
+  <div class="one">
+      class为one的div
+      <div class="bgRed">class为bgRed</div>
+      <div class="bgRed">class为bgRed</div>
+  </div>
+  <div class="one" id="two" >
+      id为two,class为one的div
+      <div class="bgRed">class为bgRed的div</div>
+  </div>
+  <span id="mover">正在执行动画的span元素.</span>
+  </body>
+</html>

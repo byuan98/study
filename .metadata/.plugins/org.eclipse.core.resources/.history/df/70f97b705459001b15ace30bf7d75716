@@ -1,0 +1,16 @@
+package test;
+
+public class TestOne {
+
+	public static void main(String[] args) {
+		int[] arry = { 1, 2, 3 , 5, 7 };
+		forI: for (int i = 0; i < arry.length; i++) {
+			for (int j = i + 1; j < arry.length; j++) {
+				if (arry[i] + 1 == arry[j]) {
+					System.out.println("yes");
+					break forI;
+				}
+			}
+		}
+	}
+}

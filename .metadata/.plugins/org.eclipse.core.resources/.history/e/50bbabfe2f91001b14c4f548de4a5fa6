@@ -1,0 +1,9 @@
+package dao;
+
+import java.util.ArrayList;
+
+import entity.Student;
+
+public interface StudentDaoInter {
+    public ArrayList<Student> getAllStudent();
+}

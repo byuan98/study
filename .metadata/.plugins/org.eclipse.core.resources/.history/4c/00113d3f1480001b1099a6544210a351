@@ -1,0 +1,10 @@
+package test;
+
+public class TestTwo {
+//    利用多例实现枚举
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+    }
+
+}

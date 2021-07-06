@@ -1,0 +1,9 @@
+package day84web;
+
+public class ClassTest {
+    
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class cla=Class.forName("day84web.Student");
+        
+    }
+}

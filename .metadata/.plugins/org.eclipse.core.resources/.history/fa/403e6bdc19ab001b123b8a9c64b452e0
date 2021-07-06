@@ -1,0 +1,7 @@
+commons-logging-1.1.1.jar//日志依赖的jar
+
+log4j-1.2.17.jar//日志jar
+
+mybatis-3.2.8.jar//mybatis核心jar
+
+mysql-connector-java-5.1.15-bin.jar//mysql驱动jar

@@ -1,0 +1,5 @@
+1611026737586	Extract method 'sumWhile'
+1611027019618	Extract method 'sumDoWhile'
+1611027336304	Extract method 'oddSumWhile'
+1611027474497	Extract method 'oddSumDoWhile'
+1611028180015	Rename type 'Chap2_4'

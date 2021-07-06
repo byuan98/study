@@ -1,0 +1,25 @@
+package test;
+
+import java.io.*;
+
+public class TestThree {
+//  IO操作测试之字节输出流
+    public static void main(String[] args) {
+        fileOutputStreamTest();
+
+    }
+    
+    private static void fileOutputStreamTest() {
+//        1、创建文件
+        File file=new File("fileOutputStreamtest.txt");
+//        try {
+           
+            System.out.println(file.getAbsolutePath());
+//            System.out.println(file.createNewFile());// createNewFile()方法会报一个IOException异常
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//    }
+
+}

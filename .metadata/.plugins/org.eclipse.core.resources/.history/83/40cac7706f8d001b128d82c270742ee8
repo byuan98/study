@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import=java.util.* %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <%
+    ArrayList<Integer>list=new ArrayList();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    Map<String,Integer>map=new HashMap();
+    map.put("value1",1);
+    map.put("value2",2);
+    map.put("value3",3);
+    
+    //EL只能操作域属性
+    session.setAttribute("list", list);
+    session.setAttribute("map", map);
+  --%>
+
+</body>
+</html>

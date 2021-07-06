@@ -1,0 +1,9 @@
+package entity;
+
+import java.io.Serializable;
+
+public class Student implements Serializable{
+    private Integer sid;
+    private String sname;
+    private String spwd;  
+}

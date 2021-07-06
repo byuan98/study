@@ -1,0 +1,19 @@
+package job;
+
+public class InputContent {
+//  通过继承Thread实现：
+//      创建三个进程，分别打印数字，大写字母，小写字母各30个；
+//      要求：打印数字的打印到5等待小写字母进程，打印小写字母的打印到a等待大写进程；
+    public static void main(String[] args) {
+        InputNumber inputNumber=new InputNumber();
+        Thread number=new Thread(inputNumber);
+        number.start();
+
+    }
+}
+
+class InputNumber implements Runnable{
+    public void run() {
+        System.out.println((char)(Math.random()*10+'0'));
+    }
+}

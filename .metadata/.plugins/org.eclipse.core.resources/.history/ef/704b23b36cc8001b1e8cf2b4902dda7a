@@ -1,0 +1,33 @@
+package cn.godfery.patterns.creational;
+
+
+interface Shape {
+    void draw();
+}
+
+class ShapeFactory{
+    
+    
+    public Shape getShape(String shapeType) {
+        ShapeFactory shapeFactory=new ShapeFactory();
+        if(shapeType == null) {
+            return null;
+        }
+        if(shapeType.equalsIgnoreCase("CIRCLE")) {
+            return new Circle();
+        }
+        if(shapeType.equalsIgnoreCase("RECTANGLE")) {
+            return new Rectangle();
+        }
+        if(shapeType.equalsIgnoreCase("SQUARE")) {
+            return new Square();
+        }
+        return null;
+    } 
+}
+
+public class FactoryPatternLambda {
+    public static void main(String[] args) {
+        
+    }
+}

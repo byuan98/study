@@ -1,0 +1,44 @@
+package entity;
+
+import java.io.Serializable;
+
+public class Teacher implements Serializable{
+    private Integer tid;
+    private String tname;
+    private String tpwd;
+    
+    public Teacher() {
+        
+    }
+    public Teacher(String tname, String tpwd) {
+        this.tname=tname;
+        this.tpwd=tpwd;
+    }
+    public Teacher(Integer tid, String tname, String tpwd) {
+        this.tid=tid;
+        this.tname=tname;
+        this.tpwd=tpwd;
+    }
+    public Integer getTid() {
+        return tid;
+    }
+    public void setTid(Integer tid) {
+        this.tid = tid;
+    }
+    public String getTname() {
+        return tname;
+    }
+    public void setTname(String tname) {
+        this.tname = tname;
+    }
+    public String getTpwd() {
+        return tpwd;
+    }
+    public void setTpwd(String tpwd) {
+        this.tpwd = tpwd;
+    }
+    
+    public String toString() {
+        return "tid="+this.tid+", tname="+this.tname;
+    }
+}

@@ -1,0 +1,29 @@
+package com.godfery.text;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.godfery.entity.Student;
+import com.godfery.util.HibernateSessionFactroy;
+
+public class HibernateText {
+    public static void main(String[] args) {
+        Session session=new HibernateSessionFactroy().getSession();//获取Session对象,对应jdbc连接
+        Transaction transaction=session.beginTransaction();//获取事务,只有dml才有事务
+
+        transaction.begin();//开启事务
+        
+//        按条件查询:HQL语句中涉及的全使类和属性,并非表和列
+//        因此where后跟的应该与对象的属性名保持一致
+        Query query=session.createQuery("update com.godfery.entity.Student set stuscore+=10 where stuscore<10");
+        Integer row=query.executeUpdate();//返回影响行数
+        System.out.println("修改成功,共影响了"+row+"行");
+        
+        
+        transaction.commit();//提交事务
+        session.close();
+    }
+}

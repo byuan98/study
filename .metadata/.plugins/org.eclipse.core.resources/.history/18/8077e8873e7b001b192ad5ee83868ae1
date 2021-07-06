@@ -1,0 +1,26 @@
+package code;
+
+public class RunSelectOperationalPrinciple {
+//  模拟run的选择机制
+    public static void main(String[] args) {
+//        问题的引入：如果使用Runnable接口，则Thread中有两个run，为什么每次执行都是传入的run呢？
+    }
+
+}
+
+interface MyRunnable{//模拟Runnable接口
+    void run();
+}
+
+class MyThread{//模拟Thread类
+    private String name;
+    private MyRunnable myRunnable;
+    
+    public void setName(String name) {
+        this.name=name;
+    }
+    
+    public String getName() {
+        return this.name;
+    }
+}

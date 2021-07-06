@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <%
+    entity.Student stu=new entity.Student(2021001,"Godfery","123456");
+    session.setAttribute("stu", stu);
+    session.setAttribute("session_name", "session_value");
+  %>
+  stu.sid=${stu.sid}<br/><!-- 2021001 -->
+  stu.sname=${stu.sname}<br/><!-- Godfery -->
+  stu.spwd=${stu.spwd}<br/><!-- 123456 -->
+  session_name=${session_name}<br/>
+  
+  <!-- 如果对象没有get方法则会报错 -->
+</body>
+</html>

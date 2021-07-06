@@ -1,0 +1,19 @@
+package test;
+
+public class TestFour {
+//  2、创建线程方式2
+    public static void main(String[] args) {
+        
+
+    }
+
+}
+
+class MyRunnable implements Runnable{//1、创建Runnable的实现类
+    public void run() {
+        for(int count=0;count<20;count++) {
+            System.out.println(Thread.currentThread().getName().toString());
+        }
+    }
+    
+}

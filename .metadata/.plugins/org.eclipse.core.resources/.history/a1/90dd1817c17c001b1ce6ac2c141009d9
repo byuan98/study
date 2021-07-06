@@ -1,0 +1,10 @@
+package test;
+
+public class TestFour {
+//  UDP连接测试之接收方
+    public static void main(String[] args) {
+//        1、创建一个UDP的Socket
+
+    }
+
+}

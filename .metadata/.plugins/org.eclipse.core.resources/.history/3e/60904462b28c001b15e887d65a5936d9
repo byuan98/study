@@ -1,0 +1,26 @@
+package test;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/test/httpservlet")
+public class HttpServletText extends HttpServlet{
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Cookie cookie=new Cookie("Cookie_name", "Cookie_value");
+        resp.addCookie(cookie);
+        resp.setHeader("Set-Cookie", "Set-Cookie_value");
+    }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
+    
+    
+}

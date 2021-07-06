@@ -1,0 +1,48 @@
+package cn.godfery.util;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+import cn.godfery.entity.Student;
+
+public class PoiUtil {
+//    private Integer stuId; //学号
+//    private String stuName; //姓名
+//    private String stuSex; //性别
+//    private String stuAge; //年龄
+//    private String stuScore; //分数
+    
+//    写一个excel
+    public static void createExcel(String fileName)throws Exception {
+        HSSFWorkbook book=new HSSFWorkbook(); //创建一个HSSFWorkbook对象
+        
+        HSSFSheet sheet=book.createSheet("学生成绩"); //创建一个sheet
+        
+        String[] names={"stuId","stuName","stuSex","stuAge","stuScore"};
+        
+        HSSFRow row0=sheet.createRow(0);
+        
+        for(Integer index=0; index<names.length; index++) {
+            row0.createCell(index).setCellValue(names[index]);
+        }
+        
+        List<Student> studentList=new ArrayList<Student>();
+        
+        for(Integer count=0; count<10; count++) {
+            Student student=new Student()
+                    .setStuId(10001+count)
+                    .setStuName("Godfery"+count)
+                    .setStuSex((Math.random()>0.5?"男":"女")
+                    .setStuAge(null)
+                    
+        }
+       
+    }
+    public static void main(String[] args) {
+        System.out.println(Math.random());
+    }
+}

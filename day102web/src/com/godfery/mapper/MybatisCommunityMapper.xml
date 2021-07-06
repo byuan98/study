@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 声明区 -->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+
+<mapper namespace="com.godfery.mapper.MybatisCommunityMapper"> <!-- 数据区 -->
+
+    <!-- n对n解决方案2:连接查询 -->
+    <resultMap type="Community" id="communityMap">
+        <id column="comid" property="comid"/>
+        <result column="comname" property="comname"/>
+        
+        <!-- 给stuList属性赋值 -->
+        <collection property="stuList" ofType="Student" javaType="java.util.List">
+            <id column="stuid" property="stuid"/>
+            <result column="stuname" property="stuname"/>
+            <result column="graid" property="graid"/>
+        </collection>
+        
+    </resultMap>
+    <select id="getAllCommunity" resultMap="communityMap">
+        select * from community com 
+        left join com_stu cs
+        on com.comid=cs.comid
+        left join student stu 
+        on stu.stuid=cs.stuid
+    </select>
+</mapper>

@@ -1,0 +1,19 @@
+package test;
+
+import java.io.*;
+import java.net.*;
+
+public class TextOne {
+
+    public static void main(String[] args) {
+//        1、创建一个ServerSocket并指定一个端口；
+        try {
+            ServerSocket server=new ServerSocket(12321);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+//        2、等待客户端的连接；
+//        3、获取Socket的输入和输出流进行数据传输；
+//        4、关闭服务；
+    }
+}

@@ -1,0 +1,12 @@
+package test;
+
+public class TestTwo {
+//  线程安全问题：多个线程的多条语句操作共享数据时，出现数据前后不一致的问题
+    public static void main(String[] args) {
+//        多个线程
+//        存在共享资源
+//        两次（多次）操作共享数据时，前后数据不一致   
+
+    }
+
+}

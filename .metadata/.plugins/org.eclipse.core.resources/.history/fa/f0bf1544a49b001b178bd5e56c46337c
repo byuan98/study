@@ -1,0 +1,15 @@
+package day84web;
+
+import java.lang.reflect.Constructor;
+
+public class ClassTest {
+    
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class cla=Class.forName("day84web.Student");
+        Constructor[] conArray=cla.getConstructors();
+        for(Constructor con:conArray) {
+            System.out.println(con);
+        }
+        
+    }
+}

@@ -1,0 +1,15 @@
+package com.godfery.text;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.godfery.mapper.MybatisStudentMapper;
+
+
+public class TestOne {
+    public static void main(String[] args) {
+        SqlSession sqlSession=new com.godfery.util.MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        studentMapper.getAllStudent();
+
+    }
+}

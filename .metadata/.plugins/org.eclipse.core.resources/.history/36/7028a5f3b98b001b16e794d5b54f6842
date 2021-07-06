@@ -1,0 +1,22 @@
+package entity;
+
+import java.io.Serializable;
+
+public class Teacher implements Serializable{
+    private Integer tid;
+    private String tname;
+    private String tpwd;
+    
+    public Teacher() {
+        
+    }
+    public Teacher(String tname, String tpwd) {
+        this.tname=tname;
+        this.tpwd=tpwd;
+    }
+    public Teacher(Integer tid, String tname, String tpwd) {
+        this.tid=tid;
+        this.tname=tname;
+        this.tpwd=tpwd;
+    }
+}

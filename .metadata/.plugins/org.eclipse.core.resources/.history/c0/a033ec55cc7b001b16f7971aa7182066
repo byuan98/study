@@ -1,0 +1,12 @@
+package test;
+
+public class TestOne {
+//  死锁
+    public static void main(String[] args) {
+//        线程死锁：多线程无法继续执行
+//        死锁情况1：两个线程互相调用对方的join方法
+        
+    }
+}
+
+

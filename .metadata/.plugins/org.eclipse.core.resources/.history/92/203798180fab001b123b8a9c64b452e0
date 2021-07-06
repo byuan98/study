@@ -1,0 +1,38 @@
+package com.godfery.test;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+
+import com.godfery.entity.Student;
+import com.godfery.entity.Teacher;
+import com.godfery.util.HibernateSessionFactory;
+
+public class HibernateText {
+    public static void main(String[] args) {
+        Session session=HibernateSessionFactory.getSession();
+        Transaction transaction=session.getTransaction();
+        
+        transaction.begin();//开启事务
+        
+//        检索方式四:Criteria接口
+        Criteria criteria=session.createCriteria(Student.class);
+        System.out.println(criteria.list());//获取所有
+        
+        System.out.println("------------------");
+        
+        criteria.add(Restrictions.eq("stuid", 2021001));//按sid获取一个
+
+        System.out.println("------------------");
+        
+        System.out.println(criteria.uniqueResult());//获取一行数据
+
+        
+        transaction.commit();//提交事务
+        session.close();
+    }
+}

@@ -1,0 +1,18 @@
+package test;
+
+import java.lang.reflect.Array;
+
+public class TestOne {
+
+	public static void main(String[] args) {
+			int []arry= {1,2,3,5,6,7};
+			for(int i=0;i<arry.length;i++) {
+				for(int j=i+1;j<arry.length-i;j++) {
+					if(arry[i]+1==arry[j]) {
+						System.out.println("yes");
+						break;
+					}
+				}
+			}			
+		}
+}

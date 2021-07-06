@@ -1,0 +1,29 @@
+package com.godfery.LeeCode;
+
+public class LeeCode {
+
+    public static void main(String[] args) {
+        System.out.println(reverse(1534236469));
+
+    }
+    public static int reverse(int number) {
+        boolean negative=false;
+        if(number<0){
+            negative=true;
+            number*=-1;
+        }
+        long numberReverse=0;
+        while(number!=0){
+            numberReverse*=10;
+            numberReverse+=number%10;
+            number/=10;
+        }
+        try {
+            int num=(int)numberReverse;
+        }catch (Exception e) {
+            return 0;
+        }
+        return negative==true?(int)numberReverse*-1:(int)numberReverse;
+    }
+
+}

@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="functions" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  "123abc".length= ${functions:length("123abc456")}<br/><!--  -->
+  "123abc"是否包含23a: ${functions:contains("123abc", "23a")}<br/><!--  -->
+  将aBc123转换为大写: ${functions:toUpperCase("aBc123")}<br/><!--  -->
+  将AbC123转换为小写: ${functions:toLowerCase("AbC123")}<br/><!--  -->
+  判断abc是否以bc结尾: ${functions:endsWith("abc", "bc")}<br/><!--  -->
+</body>
+</html>

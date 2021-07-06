@@ -1,0 +1,8 @@
+package com.godfery.test;
+
+import java.util.Scanner;
+
+public class Text {
+    private String className="text";
+
+}

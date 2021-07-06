@@ -1,0 +1,25 @@
+package test;
+
+import java.util.*;
+
+public class TestFive {
+//  新生入校：一个线程登记：学生姓名+性别，一个线程打印学生姓名+性别
+    public static void main(String[] args) {
+
+    }
+}
+
+class People{
+    private String name;
+    private String sex;
+    
+    public synchronized void set(boolean bool) {
+        if(bool) {
+            this.name="李雷";
+            this.sex="男";
+        }else {
+            this.name="韩梅梅";
+            this.sex="女";
+        }
+    }
+}

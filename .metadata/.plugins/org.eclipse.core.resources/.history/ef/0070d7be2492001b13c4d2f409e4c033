@@ -1,0 +1,15 @@
+package entity;
+
+import java.io.Serializable;
+
+public class Student implements Serializable{
+    private Integer stuid;
+    private String stuname;
+    private Double stuscore;
+    
+    
+    
+    public String toString() {
+        return "stuid="+this.stuid+",stuname="+this.stuname+",stuscore="+this.stuscore;
+    }
+}

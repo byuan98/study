@@ -1,0 +1,12 @@
+package com.godfery.util;
+
+public class JdbcUtil {
+    private static final String DRIVER_NAME;
+    private static final String USER;
+    private static final String PASSWORD;
+    private static final String URL;
+    
+    static {
+        
+    }
+}

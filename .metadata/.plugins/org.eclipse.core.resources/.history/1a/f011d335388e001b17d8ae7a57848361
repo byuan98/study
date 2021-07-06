@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <form action="<core:url value='/test/information'/>" method="get">
+    <input name="sname" type="text"/><br/>
+    <input type="submit" value="get提交"/><br/>
+  </form>
+  
+  <form action="<core:url value='/test/information'/>" method="post">
+    <input name="sname" type="text"/><br/>
+    <input type="submit" value="post提交"/><br/>
+  </form>
+</body>
+</html>

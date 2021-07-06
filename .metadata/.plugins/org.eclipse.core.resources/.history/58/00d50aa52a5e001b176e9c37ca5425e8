@@ -1,0 +1,13 @@
+package test;
+
+public class TestOne {
+
+	public static void main(String[] args) {
+		System.out.println(3.555>>0.0);
+		
+	}
+}
+
+abstract class People{
+	abstract void hello();
+}

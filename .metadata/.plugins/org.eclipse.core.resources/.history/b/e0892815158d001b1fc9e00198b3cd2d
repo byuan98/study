@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="entity.StuLogin"  %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP之EL表达式</title>
+</head>
+<body>
+  <%--在HTML中使用EL表达式 --%>
+  1+1=(1+1)<br/><%--HTML代码(HTML没有运算能力) --%>
+  1+1=<%=1+1 %><br/><%--Java片段 --%>
+  1+1=<%out.print((1+1)); %><%--Java片段 --%>
+  1+1=${1+1 }<br/><%--EL表达式 --%>
+  
+  <%--在JavaScript中使用EL表达式 --%>
+  <script type="text/javascript">
+    document.getElementById("div1").innerText="1+1="+${1+1};
+  </script>
+  <div id="div1"></div>
+  
+  <%--在JavaServerPage标签中使用EL表达式 --%>
+  <jsp:useBean id="stu" class="entity.StuLogin" scope="page"/>
+  <jsp:setProperty property="sId" name="stu" value="${1+1}"/>
+  score=<jsp:getProperty property="sid" name="stu"/>
+</body>
+</html>

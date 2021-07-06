@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>day67web</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <filter>
+    <filter-name>f1</filter-name>
+    <filter-class>test.TestOne</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>f1</filter-name>
+    <url-pattern>*.st</url-pattern><!-- 只拦截虚拟路径为day/test的请求 -->
+  </filter-mapping>
+  <!-- 拦截的其他写法 -->
+  <!-- /*：拦截所有 -->
+  <!-- /day/*：拦截虚拟目录下/day的所有请求 -->
+  <!-- *.action：拦截虚拟目录以.cation结尾的所有请求 -->
+</web-app>

@@ -1,0 +1,26 @@
+package dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import entity.Student;
+import mapper.MybatisStudentMapper;
+import util.MybatisUtil;
+
+public class StudentDao implements MybatisStudentMapper{
+
+    public List<Student> getAllStudent() {
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        return studentMapper.getAllStudent();
+
+    }
+
+    public Student getOneStudentById(Integer stuid) {
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        return studentMapper.getOneStudentById(stuid);
+    }
+
+}

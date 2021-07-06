@@ -1,0 +1,13 @@
+package test;
+
+import java.util.*;
+
+public class TestTwo {
+//  System¿‡
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.println(input);
+		System.err.println(input);
+		
+	}
+}

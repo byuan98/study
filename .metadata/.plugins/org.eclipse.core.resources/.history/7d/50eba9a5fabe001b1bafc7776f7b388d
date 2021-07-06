@@ -1,0 +1,10 @@
+package cn.godfery.text;
+
+public class NineNineTable {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+    }
+
+}

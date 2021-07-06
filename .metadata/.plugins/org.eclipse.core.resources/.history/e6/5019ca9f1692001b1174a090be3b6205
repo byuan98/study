@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>原生态的Ajax</title>
+</head>
+<body>
+  <form action="" enctype="application/x-www-form-urlencoded"></form>
+  get请求：<input type="text" name="name_get" value="请输入用户名"/><span id="span_name_get"></span><br/>
+  post请求：<input type="text" name="name_post" value="请输入用户名"/><span id="span_name_post"></span>
+</body>
+</html>

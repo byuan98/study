@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1>SpringMVC操作json</h1>
+    <h1>响应是json</h1>
+    <input type="button" id="but_responseJson" value="响应是json"/>
+    <script type="text/javascript">
+        $(function(){
+        	alert("sss")
+        	$("but_responseJson").bind("click",function(){
+        		$.ajax({
+        			url:"<core:url value='/test2/method1.action'/>", /*请求的url*/
+        			success:function(data){
+        				alert(data);
+        				
+        			},/*成功后的回调函数*/
+        			type:"GET",/*请求的方式*/
+        			dataType:"json",/*请求期待的响应数据类型*/
+        			async:true,/*是否异步true*/
+        			cache:false/*是否使用缓存,默认false*/
+        		});
+        	});	
+        });
+    </script>   
+</body>
+</html>

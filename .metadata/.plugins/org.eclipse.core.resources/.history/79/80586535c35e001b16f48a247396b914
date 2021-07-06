@@ -1,0 +1,11 @@
+package test;
+
+public class TestThree {
+
+	public static void main(String[] args) {
+		System.out.println(1970+(System.currentTimeMillis()/1000/60/60/24/365));//Äê
+		System.out.println(System.currentTimeMillis()/1000/60/60/24%30);
+
+	}
+
+}

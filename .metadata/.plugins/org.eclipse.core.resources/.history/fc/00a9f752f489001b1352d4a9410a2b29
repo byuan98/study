@@ -1,0 +1,18 @@
+package test;
+
+import util.JdbcUtil;
+import java.util.ArrayList;
+import entity.Student;
+
+public class TestOne {
+
+    public static void main(String[] args) {   
+        ArrayList<Student> list=new ArrayList<Student>();
+        
+    }
+    
+    public static void addList(ArrayList<Student> list) {
+        
+    }
+
+}

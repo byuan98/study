@@ -1,0 +1,36 @@
+package test;
+
+import java.io.IOException;
+import java.util.Enumeration;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet("/test/httpservlet")
+public class HttpServletText extends HttpServlet{
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session=req.getSession();
+        session.setAttribute("region_name1", "region_value");
+        session.setAttribute("region_name2", "region_value");
+        session.setAttribute("region_name3", "region_value");
+        session.setAttribute("region_name4", "region_value");
+        session.removeAttribute("region_name1");
+        Enumeration<String> names=session.getAttributeNames();
+        while(names.hasMoreElements()) {
+            String name=names.nextElement();
+            System.out.println("域属性:"+name+":"+session.getAttribute(name));
+        }
+    }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
+    
+    
+}

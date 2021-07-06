@@ -1,0 +1,16 @@
+package util;
+
+import java.io.Serializable;
+
+public class JdbcUtil implements Serializable{
+    private static final String DRIVER_NAME;
+    private static final String URL;
+    private static final String USER;
+    private static final String PASSWORD;
+    
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+    }
+
+}

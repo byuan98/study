@@ -1,0 +1,12 @@
+package com.godfery.test;
+
+import java.io.UnsupportedEncodingException;
+
+public class TestOne {
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String str="张博源";
+        byte[] bytes=str.getBytes("UTF-8");
+        System.out.println(bytes[1]);
+
+    }
+}

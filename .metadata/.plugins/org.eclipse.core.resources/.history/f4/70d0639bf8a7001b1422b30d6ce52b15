@@ -1,0 +1,35 @@
+package com.godfery.text;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.godfery.entity.Student;
+
+public class HibernateText {
+    public static void main(String[] args) {
+        SessionFactory factory;
+        
+        Configuration con=new Configuration();
+        
+        con.addClass(Student.class);
+        
+        factory=con.buildSessionFactory();
+        
+        Session session=factory.openSession();
+        
+        Transaction transaction=session.beginTransaction();
+        
+        transaction.begin();
+        
+        Student stu=new Student(null,"Ysdcad",96.5);
+        
+        session.save(stu);
+        
+        transaction.commit();
+        
+        session.close();
+        
+    }
+}

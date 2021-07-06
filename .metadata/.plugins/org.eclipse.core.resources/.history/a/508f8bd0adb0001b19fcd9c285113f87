@@ -1,0 +1,30 @@
+package com.godfery.entity;
+
+public class Code {
+    private String id;
+    private String pwd;
+    
+    public Code() {
+        
+    }
+
+    public String getId() {
+        return id;
+    }
+    public Code setId(String id) {
+        this.id = id;
+        return this;
+    }
+    public String getPwd() {
+        return pwd;
+    }
+    public Code setPwd(String pwd) {
+        this.pwd = pwd;
+        return this;
+    }
+    
+    private static String encoding(String parameter) {
+        
+        return parameter;
+    }
+}

@@ -1,0 +1,50 @@
+package test;
+
+import java.util.*;
+
+public class TestThree {
+//    常见异常测试
+    public static void main(String[] args) {
+//        NumberFormatExceptionTest();
+//        NullPointExceptionTest();
+//        indexOutOfBoundsExceptionTest();
+        arithmeticExceptionTest();
+
+
+    }
+    
+    private static void numberFormatExceptionTest() {//NumberFormatException异常
+//        数字格式异常
+//        当应用程序试图将字符串转换成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常
+//        异常复现：
+        String str="123a";
+        Integer i=Integer.valueOf(str);
+    }
+    
+    private static void nullPointExceptionTest() {//NullPointException异常
+//        空指针异常
+//        当应用程序试图在需要对象的地方使用 null 时，抛出该异常。这种情况包括： 
+//            调用 null 对象的实例方法； 
+//            访问或修改 null 对象的字段； 
+//            将 null 作为一个数组，获得其长度； 
+//            将 null 作为一个数组，访问或修改其时间片；
+//            将 null 作为 Throwable 值抛出；
+//        异常复现：
+        ArrayList al=new ArrayList();
+        al.addAll(null);
+        
+    }
+    
+    private static void indexOutOfBoundsExceptionTest() {//IndexOutOfBoundsException异常
+//        索引越界异常
+//        指示某排序索引超出范围时抛出
+        ArrayList al=new ArrayList();
+        System.out.println(al.get(1));
+    }
+
+    private static void arithmeticExceptionTest() {//ArithmeticException异常
+//        算术异常
+        System.out.println(1/0);
+        
+    }
+}

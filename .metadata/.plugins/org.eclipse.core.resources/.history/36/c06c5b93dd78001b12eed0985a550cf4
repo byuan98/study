@@ -1,0 +1,16 @@
+package test;
+
+import java.io.*;
+
+public class TestTwo {
+//  IO²Ù×÷²âÊÔ
+    public static void main(String[] args) {
+        fileInputStreamTest();
+
+    }
+
+    public static void fileInputStreamTest() {
+
+    }
+
+}

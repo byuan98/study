@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+    <!-- 指定类名和表名 -->
+    <class name="com.godfery.entity.Student" table="student">
+        <!-- 指定主键列对应的属性 -->
+        <id name="stuid" column="stuid" type="int">
+            <generator class="identity"/><!-- 主键自增方式:数据库自增 -->
+        </id>
+        <property name="stuname" column="stuname" type="string"/>
+        <!-- many-to-one:适用于多对一 -->
+        <many-to-one name="teacher" column="teaid" class="com.godfery.entity.Teacher" lazy="proxy"/>
+        
+        <!-- 多对多 -->
+        <set name="comSet" table="com_stu">
+            <key column="stuid"/>
+            <many-to-many column="comid" class="com.godfery.entity.Community"/>
+        </set>
+    </class>
+</hibernate-mapping>

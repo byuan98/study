@@ -1,0 +1,44 @@
+package test;
+
+import java.io.*; 
+
+public class TestTwo {
+//  IO操作测试
+	public static void main(String[] args) {
+		fileInputStreamTest();
+
+	}
+	
+	public static void fileInputStreamTest() {
+//		1、创建文件;
+		File file=new File("D://Code//FileTest//FileTest文件夹说明.txt");
+//		2、创建流与文件关联;
+		try {
+			FileInputStream in=new FileInputStream(file);
+//		3、选择读的方式;这里我们选择逐个字节数组读
+		    byte[] bytes=new byte[2];//定义一个字节数组,每次装两字节
+		    while(true) {
+			    try {
+				    if(in.read(bytes)==-1) {
+					    break;
+				    }
+				    System.out.println(new String(bytes));
+			    } catch (IOException e) {//该read方法会抛出IOException的异常
+				    e.printStackTrace();
+			    }finally {
+			    	try {
+						in.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			    }
+		    }
+		} catch (FileNotFoundException e) {//此构造函数会抛出FileNotFoundException异常
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

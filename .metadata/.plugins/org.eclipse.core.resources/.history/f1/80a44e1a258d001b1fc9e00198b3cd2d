@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="entity.Student"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP之EL表达式</title>
+</head>
+<body>
+  <jsp:useBean id="stu" class="entity.Student" scope="request"/>
+  <%--等价于 --%>
+  <%
+      Student stu1=new Student();
+      request.setAttribute("stu1", stu1);
+  %>
+  
+  <jsp:setProperty property="sname" name="stu" value="Godfery"/>
+  <%--等价于 --%>
+  <%stu1.setSname("Godfery");%>
+  
+  sname=<jsp:getProperty property="sname" name="stu"/><br>
+    <%--等价于 --%>
+  sname=<%=((Student)request.getAttribute("stu1")).getSname()%>
+</body>
+</html>

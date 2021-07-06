@@ -1,0 +1,18 @@
+package job;
+
+public class Ticketing {
+
+    public static void main(String[] args) {
+       TicketWindow ticketWindow=new TicketWindow();
+    }
+}
+
+class TicketWindow implements Runnable{//定义一个售票窗口类，实现Runnable接口
+    private static Integer ticketId=1;//定义一个公共的成员变量，该变量存放当前的车票编号
+    public void run() {
+        while(true) {
+            System.out.println(Thread.currentThread().getName()+ticketId+"号票");
+            ticketId++;
+        }
+    }
+}

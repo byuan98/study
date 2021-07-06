@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+    <!-- xsd文件对当前xml文件进行语法检查 ：规定有哪些标签 有哪些属性 标签的嵌套关系-->
+
+    <!-- 使用context标签指定要扫描的添加注解的实体类所在的包 -->
+    <context:component-scan base-package="entity"/>
+
+
+    <!-- 
+    <bean name="student" class="entity.Student"><!- 每个bean标签对应一个 ->
+          <!- Integer stuid; String stuname; Double stuscore; Teacher teacher->
+          <property name="stuid" value="2021001"/>
+          <property name="stuname" value="Godfery"/>
+          <property name="stuscore" value="98.5"/> <!- 单值属性通过value来赋值 ->
+          <!- 注入方式1:通过set方法注入 ->
+          <property name="teacher" ref="teacher"/> <!- 对象属性通过ref来指定bean的name/id ->
+    </bean>
+
+     
+    <bean name="student" class="entity.Student">
+        <!- Student(Integer stuid, String stuname, Double stuscore, Teacher teacher) ->
+        <constructor-arg type="java.lang.Integer" value="2021002"/>
+        <constructor-arg type="java.lang.String" value="Ali"/>
+        <constructor-arg type="java.lang.Double" value="87.5"/>
+        <!- 注入方式2:通过调用指定的构造方法,由构造方法的参数列表来给属性赋值 ->
+        <constructor-arg type="entity.Teacher" ref="teacher"/>
+    </bean>
+
+    
+    <!- 创建对象的关联方式1:手动装配,通过ref属性显式指定对象类型属性对应的bean ->
+    <bean name="student" class="entity.Student">
+          <!- Integer stuid; String stuname; Double stuscore; Teacher teacher ->
+          <property name="stuid" value="2021001"/>
+          <property name="stuname" value="Godfery"/>
+          <property name="stuscore" value="98.5"/>
+          <property name="teacher" ref="teacher"/>
+    </bean>
+    
+     
+    <!- 创建对象的关联方式2:自动装配之byName ->
+    <!- 找与属性名一致的bean,并自动赋值 ->
+    <bean name="student" class="entity.Student" autowire="byName">
+    <!- Integer stuid; String stuname; Double stuscore; Teacher teacher ->
+        <property name="stuid" value="2021001"/>
+        <property name="stuname" value="Godfery"/>
+        <property name="stuscore" value="98.5"/>
+    </bean>
+    <!- Student [stuid=2021001, stuname=Godfery, stuscore=98.5, teacher=Teacher [teaid=10002, teaname=Ali]] ->
+
+     
+    <!- scope="prototype"更改默认的单例模式为多例模式 ->
+    <!- 该模式下只有调用getBean方法时才会创建对象,这种方式我们又称之为懒加载 ->
+    <!- 当scope="prototype"时lazy-init="false"无效 ->   
+    <bean name="student" class="entity.Student" init-method="initMethon" destroy-method="destroyMethod">
+        <property name="stuid" value="2021001"/>
+        <property name="stuname" value="Godfery"/>
+        <property name="stuscore" value="98.5"/>
+    </bean>
+    
+    <!- scope="singleton"立即创建对象,当设置属性lazy-init="true"后,会转换为懒加载 ->
+    <!- scope="singleton"立即创建对象,当设置属性lazy-init="false"后(默认),会转换为立即加载 ->
+    <bean name="student1" class="entity.Student" lazy-init="false">
+        <property name="stuid" value="2021001"/>
+        <property name="stuname" value="Godfery"/>
+        <property name="stuscore" value="98.5"/>
+    </bean>
+
+    
+    <!- 属性值为集合类型 ->
+    <bean name="test" class="entity.Test">
+	    <!- private List<String> strList;//测试单值数据列表 ->
+	    <property name="strList">
+	        <list value-type="java.lang.String">
+	            <value>1a</value>
+	            <value>2b</value>
+	            <value>3c</value>
+	        </list>
+	    </property>
+	    
+	    <!- private List<Teacher> teaList;//测试引用类型列表 ->
+	    <property name="teaList">
+	        <list value-type="entity.Teacher">
+	            <ref bean="teacher"/>
+	            <ref bean="teacher1"/>
+	        </list>
+	    </property>
+	    
+	    <!- private Set<String> strSet;//测试单值集合 ->
+	    <property name="strSet">
+	        <set value-type="java.lang.String">
+	            <value>4d</value>
+	            <value>5e</value>
+	            <value>6f</value>
+	            <value>6f</value> <!- 这里故意设置一个重复值 ->
+	        </set>
+	    </property>
+	    
+	    <!- private Map<String, Teacher> strTeaMap;//测试双列集合 ->
+	    <property name="strTeaMap">
+	        <map key-type="java.lang.String" value-type="entity.Teacher">
+	            <entry key="k1" value-ref="teacher"/>
+	            <entry key="k2" value-ref="teacher1"/>
+	            <entry key="k1" value-ref="teacher1"/> <!- 这里故意设置一个重复键 ->
+	        </map>
+	    </property>
+	    
+	    <!- private Double[] doubleArray;//测试数组 ->
+	    <property name="doubleArray">
+	        <array value-type="java.lang.Double">
+	            <value>12.3</value>
+	            <value>23.4</value>
+	            <value>34.5</value>
+	        </array>
+	    </property>
+    </bean>
+    
+    <bean name="teacher" class="entity.Teacher">
+        <!- Teacher(Integer teaid, String teaname) ->
+        <property name="teaid" value="10001"/>
+        <property name="teaname" value="Echo"/>
+    </bean>
+    <bean name="teacher1" class="entity.Teacher">
+        <!- Teacher(Integer teaid, String teaname) ->
+        <property name="teaid" value="10002"/>
+        <property name="teaname" value="Ali"/>
+    </bean>
+    
+    <!-
+    <bean name="factoryStatic" class="entity.FactoryStatic" factory-method="getInstance">
+    </bean> ->
+    
+    <!- 实例工厂模式,通过工厂类的实例方法来创建对象 ->
+    <bean name="factoryInstance" class="entity.FactoryInstance"/>
+    <bean name="teacher2" class="entity.Teacher" factory-bean="factoryInstance" factory-method="getInstancel"/>
+     -->
+</beans>

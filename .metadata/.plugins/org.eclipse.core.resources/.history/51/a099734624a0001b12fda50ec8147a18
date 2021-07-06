@@ -1,0 +1,33 @@
+package mapper;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import entity.Student;
+
+public interface MybatisStudentMapper {
+    @Select("select * from student")
+    public List<Student> getAllStudent();//获取所有学生
+    
+    @Select("select * from student where stuid=#{stuid}")
+    public Student getOneStudentById(Integer stuid);//根据学号获取指定学生
+    
+    public Integer updateStudent(Student stu);//修改学生信息,返回所影响的行数
+    
+    public List<Student> getPartStudent(Student stu);//根据where条件获取部分学生
+    
+    public List<Student> getPartStudentByScore(Double lowScore, Double highScore);//根据分数范围来获取部分学生
+    
+    public List<Student> getOneOrAllStudent(Integer stuid);//获取一个或全部学生
+    
+    public List<Student> getPartStudentByFairScore(Double fairScore);//根据一个合理的分数来查询部分学生
+    
+    public Integer updateScoreByParameter(Integer parameter);//根据参数修改分数,大于0为男生,小于0为女生,0为全部
+    
+    public Integer addAllStudentParameterList(List<Student> studentList);//将列表的所有学生批量增加到数据库中
+
+    public List<Student> getAllStudentParameterArray(Integer[] array);
+}

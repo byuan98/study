@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 声明区 -->
+
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd"
+>
+
+<configuration>
+    <properties resource="properties/mysql.properties"/>
+    <settings>
+        <!-- 显示SQL语句的日志文件 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        
+        <!-- 可使用二级缓存，默认开启 -->
+        <setting name="cacheEnabled" value="true"/>
+        
+    </settings>
+    
+    <typeAliases>
+        <package name="entity"/>
+    </typeAliases>
+    
+    <environments default="db_mybatis1"> <!-- 默认配置项 -->
+        <environment id="db_mybatis1"><!-- 配置项id -->
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED"> <!-- POOLED指的是连接池方式 -->       
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+        
+    <!--<environment id="db_mybatis2">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">       
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://192.168.133.139:3306/db_mybatis"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>-->
+    </environments> 
+    
+    <mappers>
+        <package name="mapper"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,28 @@
+package com.godfery.test;
+
+public class TestThree {
+    public static void main(String[] args) {
+        Integer rowCount=9; 
+        
+        for(Integer rowNow=0;rowNow<3;rowNow++) {
+            for(Integer spaceNumber=0;spaceNumber<3-rowNow;spaceNumber++) {
+                System.out.print("   ");
+            }
+            for(Integer starNumber=0;starNumber<=rowNow*2;starNumber++) {
+                System.out.print(" * ");
+            }
+            System.out.println();
+            
+        }
+        
+        for(Integer rowNow=0;rowNow<rowCount;rowNow++) {
+            for(Integer spaceNumber=0;spaceNumber<rowNow;spaceNumber++) { //打印空格
+                System.out.print("   ");
+            }
+            for(Integer starNumber=0;starNumber<2*(rowCount-rowNow)-1;starNumber++) {
+                System.out.print(" * ");
+            }
+            System.out.println();
+        }
+    }
+}

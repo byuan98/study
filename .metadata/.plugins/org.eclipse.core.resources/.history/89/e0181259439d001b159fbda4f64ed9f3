@@ -1,0 +1,26 @@
+package test;
+
+public class TestTwo {
+
+    public static void main(String[] args) {
+        
+
+    }
+
+}
+
+interface Person{
+    public Integer add(Integer number1, Integer number2);
+    public void work();
+}
+
+class Teacher implements Person{
+    public Integer add(Integer number1, Integer number2) {
+        System.out.println("老师正在计算"+number1+"与"+number2+"的和");
+        return number1+number2;
+    }
+    public void work() {
+        System.out.println("老师正在努力工作");
+    }
+}
+

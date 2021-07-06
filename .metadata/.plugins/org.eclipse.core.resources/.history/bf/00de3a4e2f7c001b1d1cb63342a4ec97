@@ -1,0 +1,16 @@
+package test;
+
+public class TestSeven {
+
+    public static void main(String[] args) {
+
+    }
+}
+
+class Product{//产品类，生产者要生产的内容
+    
+}
+
+class Producer extends Thread{//生产者类，用以生产产品
+    
+}

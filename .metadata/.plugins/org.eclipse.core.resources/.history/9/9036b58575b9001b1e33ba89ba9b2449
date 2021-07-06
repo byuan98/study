@@ -1,0 +1,21 @@
+package com.godfery.test;
+
+import java.util.Scanner;
+
+public class TestThree {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("请输入行：");
+        Integer rowCount=input.nextInt(); 
+        
+        for(Integer beginRow=0;beginRow<rowCount;beginRow++) {
+            for(Integer spaceNumber=0;spaceNumber<=beginRow;spaceNumber++) { //打印空格
+                System.out.print(' ');
+            }
+            for(Integer starNumber=rowCount;starNumber>=beginRow;starNumber--) {
+                System.out.print('*');
+            }
+            System.out.println();
+        }
+    }
+}

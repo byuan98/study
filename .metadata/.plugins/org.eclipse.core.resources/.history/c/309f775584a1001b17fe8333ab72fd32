@@ -1,0 +1,25 @@
+package test;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import entity.Student;
+
+public class TestOne {
+
+    public static void main(String[] args) {
+//        1、创建spring的上下文对象
+//        默认情况下核心配置文件一
+//        读取对象便已经创建完毕
+//        Bean标签默认是单例
+//        
+        ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("configure/SpringConfigure.xml");
+//        2、获取javabean对象
+        Student stu=(Student)context.getBean("student");
+        System.out.println(stu);
+//        3、关闭context
+        context.close();
+    }
+}
+//默认情况下核心配置文件一读取对象便已经创建完毕
+//Bean标签默认是单例
+//必须要有无参数的构造方法

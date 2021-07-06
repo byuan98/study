@@ -1,0 +1,9 @@
+package test;
+
+import org.w3c.dom.Document;
+
+public class TestOne {
+    public static void main(String[] args) {
+        Document doc=xml2Doc("day85web/src/student.xml");
+    }
+}

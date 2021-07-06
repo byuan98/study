@@ -1,0 +1,10 @@
+package test;
+
+public class TestFour {
+//  2、创建线程方式2
+    public static void main(String[] args) {
+        
+
+    }
+
+}

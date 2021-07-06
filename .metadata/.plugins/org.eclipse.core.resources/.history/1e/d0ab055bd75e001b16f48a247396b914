@@ -1,0 +1,28 @@
+package test;
+
+import static java.lang.System.currentTimeMillis;
+
+public class TestThree {
+
+	public static void main(String[] args) {
+		long time=currentTimeMillis();
+		long days=time/1000/3600/24; //×ÜÌìÊı
+		long year,month,day;
+		for(year=1970;days<365;) {
+			if(runnian(year)) {
+				days-=366;
+				year++;
+			}else {
+				days-=365;
+				year++;
+			}
+			
+		}
+		System.out.println(year);
+	}
+	private static boolean runnian(long year) {
+		return (year%4==0 && year%100==0)||(year%400==0);
+	}
+
+}
+

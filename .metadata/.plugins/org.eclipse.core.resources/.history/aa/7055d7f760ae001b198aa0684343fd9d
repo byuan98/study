@@ -1,0 +1,34 @@
+package com.godfery.test;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+
+import com.godfery.entity.Student;
+import com.godfery.entity.Teacher;
+import com.godfery.util.HibernateSessionFactory;
+
+public class HibernateText {
+    public static void main(String[] args) {
+        Session session=HibernateSessionFactory.getSession();
+        Transaction transaction=session.getTransaction();
+        
+        transaction.begin();//开启事务
+        
+//        检索方式五:本地SQL
+//        查询所有学生
+        Query query=session.createSQLQuery("select * from student").addEntity(Student.class);
+        List<Student> stuList=query.list();
+        System.out.println(stuList);
+        
+//        添加一位老师
+        query=session.createSQLQuery("insert into teacher(teaname,teasubject) values(?,?)");
+        query.setParameter(0, "Abi").setParameter(1, "JavaScript").executeUpdate();//链式调用
+        transaction.commit();//提交事务
+        session.close();
+    }
+}

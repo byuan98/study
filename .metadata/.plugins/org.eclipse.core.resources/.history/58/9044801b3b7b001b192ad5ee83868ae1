@@ -1,0 +1,16 @@
+package test;
+
+public class TestFive {
+
+    public static void main(String[] args) {
+        
+
+    }
+
+}
+
+class MyThread extends Thread{//1、创建类继承Thread类
+    public void run() {//2、重写run方法
+        System.out.println("重写的run方法");
+    }
+}

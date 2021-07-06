@@ -1,0 +1,18 @@
+package cn.godfery.test;
+
+public class TestOne {
+//    Lambda表达式案例一：定义线程打印1-5
+    public static void main(String[] args) {
+        new Thread(()->{
+            for(int count=0;count<50000;count++) {
+                System.out.println("count："+count);
+            }
+        }).start();
+        new Thread(()->{
+            for(int count=0;count<50000;count++) {
+                System.out.println("c："+count);
+            }
+        }).start();
+    }
+
+}

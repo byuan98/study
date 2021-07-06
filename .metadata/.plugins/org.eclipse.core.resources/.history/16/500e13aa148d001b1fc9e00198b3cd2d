@@ -1,0 +1,39 @@
+package entity;
+
+import java.io.Serializable;
+
+public class StuLogin implements Serializable{
+    private Integer sid;
+    private String sName;
+    private String sPwd;
+
+    public StuLogin() {
+        
+    }
+    public StuLogin(Integer sId, String sName) {
+        this.sId=sId;
+        this.sName=sName;
+    }
+    public StuLogin(Integer sId, String sName, String spwd) {
+        this.sId=sId;
+        this.sName=sName;
+        this.sPwd=spwd;
+    }
+    
+    public Integer getSId() {
+        return this.sId;
+    }
+    public void setSId(Integer sId) {
+        this.sId=sId;
+    }
+    public String getSName() {
+        return this.sName;
+    }
+    public void setSName(String sName) {
+        this.sName=sName;
+    }
+    
+    public String toString() {
+        return "sId="+this.sId+",sName="+this.sName;
+    }
+}

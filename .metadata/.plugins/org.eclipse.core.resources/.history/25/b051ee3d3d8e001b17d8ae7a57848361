@@ -1,0 +1,19 @@
+package test;
+
+import javax.servlet.ServletRequestEvent;
+import javax.servlet.ServletRequestListener;
+import javax.servlet.annotation.WebListener;
+import javax.servlet.http.HttpServletRequest;
+
+@WebListener
+public class TestRequestListener implements ServletRequestListener{
+    public void requestDestroyed(ServletRequestEvent sre) {
+        HttpServletRequest req=(HttpServletRequest)sre.getServletRequest();
+        System.out.println("request死监听");
+    }
+
+    public void requestInitialized(ServletRequestEvent sre) {
+        HttpServletRequest req=(HttpServletRequest)sre.getServletRequest();
+        System.out.println("request生监听");
+    }  
+}

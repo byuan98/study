@@ -1,0 +1,24 @@
+package com.godfery.text;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.godfery.entity.Student;
+import com.godfery.util.HibernateSessionFactroy;
+
+public class HibernateText {
+    public static void main(String[] args) {
+//        获取Session对象,对应jdbc连接
+        Session session=new HibernateSessionFactroy().getSession();
+//        获取事务,只有dml才有事务
+        Transaction transaction=session.beginTransaction();
+        
+        Student stu=new Student(102,"Asdcfdf",65.3);
+        session.save(stu);//添加数据
+        
+        transaction.commit();//提交事务
+        
+        session.close();
+        
+    }
+}

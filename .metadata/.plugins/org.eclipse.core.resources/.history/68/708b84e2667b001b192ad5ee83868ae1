@@ -1,0 +1,26 @@
+package job;
+
+import java.util.*;
+
+public class CollectJob {
+
+    public static void main(String[] args) throws Exception {
+
+    }
+}
+
+class Teacher extends Thread{
+    Student student;
+    List<String> jobs=new ArrayList();
+    public void run() {
+        student.join();
+        System.out.println("收作业");
+        
+    }
+}
+
+class Student extends Thread() {
+    public void run() {
+        System.out.println("叫作业");
+    }
+}

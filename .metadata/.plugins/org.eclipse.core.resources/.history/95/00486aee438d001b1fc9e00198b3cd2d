@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="entity.Student"%>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP之JSTL表达式</title>
+</head>
+<body>
+  <!-- JSTL之核心标签库：core -->
+  <!-- 1、url标签 -->
+  <!-- url标签的作用1：给value指定的路径前加项目路径 -->
+  <core:url value="1.txt" />
+</body>
+</html>

@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <fmt:setLocale value="zh_cn"/>
+  <fmt:formatNumber value="9.8" type="number"/><br/>
+  <fmt:formatNumber value="9.8" type="currency"/><br/>
+  <fmt:formatNumber value="9.8" type="percent"/><br/>
+</body>
+</html>

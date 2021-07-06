@@ -1,0 +1,45 @@
+package com.godfery.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.godfery.entity.User;
+import com.godfery.util.JdbcUtil;
+
+public class UserDao {
+
+    public static void addUserText(User user){
+        Connection con=null;
+        PreparedStatement pre=null;
+        ResultSet set=null;
+        
+        String sql="INSERT INTO user(sleep_uuid,name,sex,age,work,sleep_time,reason,sleep_time_begin,sleep_time_long,is_sleep,is_big,is_reson,way) VALUES(MD5(RAND()*24),?,?,?,?,?,?,?,?,?,?,?,?);";
+         
+        
+        try{
+            con=JdbcUtil.getConnection();
+            pre=con.prepareStatement(sql);
+            age,work,sleep_time,reason,sleep_time_begin,sleep_time_long,is_sleep,is_big,is_reson,way
+            pre.setString(1, user.getName());
+            pre.setString(2, user.getSex());
+            pre.setString(3, user);
+            pre.setString(4, user);
+            pre.setString(5, user);
+            pre.setString(6, user);
+            pre.setString(7, user);
+            pre.setString(8, user.getUsereason());
+            pre.setString(9, user);
+            pre.setString(10, user);
+            pre.setString(11, user);
+            pre.setString(12, user.getUsereason());
+            int row=pre.executeUpdate();
+
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally{
+            JdbcUtil.close(con, pre, null);
+        }
+    }
+
+}

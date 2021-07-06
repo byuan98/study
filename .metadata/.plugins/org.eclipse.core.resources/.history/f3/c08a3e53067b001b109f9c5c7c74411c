@@ -1,0 +1,13 @@
+package test;
+
+public class TestTwo {
+//  线程
+    public static void main(String[] args) {
+//        进程：电脑中正在运行的程序
+//        线程：电脑中正在运行的程序中正在执行的代码块
+//        线程是进程的执行单元，一个进程至少包含一个线程
+//            
+
+    }
+
+}

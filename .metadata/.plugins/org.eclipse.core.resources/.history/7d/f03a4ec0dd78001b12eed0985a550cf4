@@ -1,0 +1,33 @@
+package test;
+
+import java.io.*;
+
+public class TestTwo {
+//  IO操作测试
+    public static void main(String[] args) {
+        try {
+            fileInputStreamTest();// 这里会接受该方法传出来的IOException异常,我们选择捕获
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void fileInputStreamTest() throws IOException {
+//        1、创建文件
+        File file = new File("D:\\Code\\FileTest\\FileTest文件夹说明.txt");
+//        2、创建流与源文件关联
+        FileInputStream in = new FileInputStream(file);// 该构造方法会抛出FileNotFoundException异常
+//        3、选择读的方式:这里我们选择逐个字节数组的读
+        byte[] date = new byte[160];
+        while (true) {
+            if (in.read(date) == -1) {// 该方法会抛出IOException异常
+                break;
+            }
+            System.out.println(new String(date,0,in.read(date)));
+        }
+//        4、关闭流释放资源
+        in.close();
+    }
+
+}

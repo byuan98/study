@@ -1,0 +1,21 @@
+package test;
+
+public class TestThree {    
+    @MyAnnotation1(name="Godfery", age=18)//注解的赋值方式:变量名=属性值
+    public static void showOne() {
+        
+    }
+    @interface MyAnnotation1{
+        String name();
+        int age();//不可使用包装类
+        float score() default 0;//默认值为0
+    }
+    
+    @MyAnnotation2(18)//当只有只有一个属性且该属性名为value时,value=可以省略
+    public static void showTwo() {
+        
+    }
+    @interface MyAnnotation2{
+        int value();
+    }
+}

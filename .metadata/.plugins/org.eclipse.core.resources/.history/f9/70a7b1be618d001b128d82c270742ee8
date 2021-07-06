@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <%
+    //分别在四大域中添加属性
+    pageContext.setAttribute("name", "page_value");
+    request.setAttribute("name", "request_value");
+    session.setAttribute("name", "session_value");
+    application.setAttribute("name", "application_value");
+    
+    out.print(pageContext.getPage()+"<br/>");//获取page
+    out.print(pageContext.getRequest()+"<br/>");//获取request
+    out.print(pageContext.getSession()+"<br/>");//获取session
+    out.print(pageContext.getServletContext()+"<br/>");//获取application
+    
+    out.print(pageContext.getOut()+"<br/>");//获取out
+    out.print(pageContext.getResponse()+"<br/>");//获取response
+    out.print(pageContext.getServletConfig()+"<br/>");//获取config
+    out.print(pageContext.getException()+"<br/>");//获取exception
+    out.print(config);
+    
+  %>
+</body>
+</html>

@@ -1,0 +1,17 @@
+package test;
+
+import java.util.regex.*;;
+
+public class TestTwo {
+//    正则测试（正确规则，为字符串提供正确规则）
+    public static void main(String[] args) {
+//        1、创建一个Pattern对象，参数为匹配规则；
+        Pattern pattern=Pattern.compile("[0-9]");//规则：数字0-9
+//        2、获取匹配器对象，并关联要判断的字符串；
+        Matcher matcher=pattern.matcher("10");
+//        3、调用匹配器对象的方法获取匹配结果；
+        System.out.println(matcher.matches());//false
+
+    }
+
+}

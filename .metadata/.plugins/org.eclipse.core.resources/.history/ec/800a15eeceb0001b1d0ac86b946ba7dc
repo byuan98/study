@@ -1,0 +1,15 @@
+package com.godfery.test;
+
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import com.godfery.entity.Code;
+
+public class TestOne {
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String str=new Code().setType("张雷锋").getType();
+        System.out.println(str);
+        System.out.println(new Code().setType(str).getType());
+    }
+
+}

@@ -1,0 +1,13 @@
+package test;
+
+import java.util.*;
+
+public class TestTwo {
+//    正则测试（正确规则，为字符串提供正确规则）
+    public static void main(String[] args) {
+//        1、创建一个Pattern对象；
+        Pattern pattern=new Pattern("[1]");
+
+    }
+
+}

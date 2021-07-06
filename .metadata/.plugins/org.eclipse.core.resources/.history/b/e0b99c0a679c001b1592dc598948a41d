@@ -1,0 +1,21 @@
+package test;
+
+import entity.Student;
+
+public class TestSix {
+    public static void main(String []args) {
+        Student stu=new Student();
+        Student stu1=new Student();
+        Student stu2=new Student();
+        Student stu3=new Student();
+        Student stu4=new Student();
+        Student stu5=new Student();
+        System.out.println(stu.getStuid());
+        System.out.println(stu1.getStuid());
+        System.out.println(stu2.getStuid());
+        System.out.println(stu3.getStuid());
+        System.out.println(stu4.getStuid());
+        System.out.println(stu5.getStuid());
+        
+    }
+}

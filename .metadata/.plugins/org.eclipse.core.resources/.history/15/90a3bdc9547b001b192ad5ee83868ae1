@@ -1,0 +1,10 @@
+package job;
+
+public class InputCountThread {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+    }
+
+}

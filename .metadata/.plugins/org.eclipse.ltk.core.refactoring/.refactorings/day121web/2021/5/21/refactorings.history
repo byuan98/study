@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;cn.godfery.util.JdbcUtil&apos; to &apos;OracleJdbcUtil&apos;&#x0D;&#x0A;- Original project: &apos;day121web&apos;&#x0D;&#x0A;- Original element: &apos;cn.godfery.util.JdbcUtil&apos;&#x0D;&#x0A;- Renamed element: &apos;cn.godfery.util.OracleJdbcUtil&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;JdbcUtil&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;cn.godfery.util{JdbcUtil.java[JdbcUtil" matchStrategy="1" name="OracleJdbcUtil" qualified="false" references="true" similarDeclarations="false" stamp="1621646587781" textual="false" version="1.0"/>
+</session>

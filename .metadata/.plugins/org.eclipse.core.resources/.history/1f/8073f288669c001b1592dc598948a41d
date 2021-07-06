@@ -1,0 +1,11 @@
+package test;
+
+import entity.Student;
+
+public class TestSix {
+    public static void main(String []args) {
+        Student stu=new Student();
+        System.out.println(stu.getStuid());
+        
+    }
+}

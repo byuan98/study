@@ -1,0 +1,33 @@
+package com.godfery.util;
+
+import java.sql.DriverManager;
+
+import com.mysql.jdbc.Connection;
+
+public class JdbcUtil {
+    private static final String DRIVER_NAME;
+    private static final String USER;
+    private static final String PASSWORD;
+    private static final String URL;
+    
+    static {
+        DRIVER_NAME="com.mysql.jdbc.Driver";
+        USER="root";
+        PASSWORD="root";
+        URL="jdbc:mysql://192.168.217.1/test";
+        
+        try {
+            Class.forName(DRIVER_NAME);
+        }catch(ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public static Connection getConnection() {
+        try {
+            return DriverManager.getConnection(URL, USER, PASSWORD);
+        }catch(ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

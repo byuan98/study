@@ -1,0 +1,11 @@
+package dao;
+
+import java.util.ArrayList;
+
+import entity.Student;
+
+public interface StudentDaoInter {
+    public ArrayList<Student> getAllStudent();//查询总学生数
+    
+    public ArrayList<Student> getAllStudentPaging();//查询总学生数并进行分页
+}

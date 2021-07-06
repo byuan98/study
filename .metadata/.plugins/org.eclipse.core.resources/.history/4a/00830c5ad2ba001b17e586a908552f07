@@ -1,0 +1,20 @@
+package cn.godfery.test;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+
+import cn.godfery.util.OracleJdbcUtil;
+
+public class TestOne {
+    public static void main(String[] args) {
+        
+    }
+    
+//    通过Java调用存储过程
+    public static void executeProcedure() {
+        Connection con=OracleJdbcUtil.getConnection(); //获取连接
+        String sql="{call package_java_test.pro_test(?, ?, ?)}"; //准备SQL模板
+        CallableStatement call=con.prepareCall(sql); //获取 
+        
+    }
+}

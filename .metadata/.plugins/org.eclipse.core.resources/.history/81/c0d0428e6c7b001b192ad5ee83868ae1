@@ -1,0 +1,17 @@
+package job;
+
+public class Ticketing {
+
+    public static void main(String[] args) {
+
+    }
+}
+
+class Ticket implements Runnable{
+    private static Integer ticketIdPool=1;
+
+    public void run() {
+        System.out.println(ticketIdPool);
+        ticketIdPool++;
+    }
+}

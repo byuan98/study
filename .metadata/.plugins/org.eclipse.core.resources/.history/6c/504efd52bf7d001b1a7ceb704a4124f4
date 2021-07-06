@@ -1,0 +1,15 @@
+package job;
+
+import java.io.*;
+
+public class Statistics {
+
+    public static void main(String[] args) {
+        //
+
+    }
+    private void statisticsStudentJob(File[] studentName) {
+        
+    }
+
+}

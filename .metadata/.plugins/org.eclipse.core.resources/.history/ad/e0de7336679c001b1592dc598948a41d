@@ -1,0 +1,44 @@
+package entity;
+
+public class Student {
+    private static Integer idPool=2021001;
+    private static Integer stuid;
+    private String stuname;
+    private String stusex;
+    private Double stuscore;
+
+    public Student() {
+        this.stuid=idPool;
+        idPool++;
+    }
+    
+    public Student(String stuname, String stusex, Double stuscore) {
+        this.stuid=idPool;
+        idPool++;
+    }
+
+
+    public Integer getStuid() {
+        return stuid;
+    }
+    public String getStuname() {
+        return stuname;
+    }
+    public void setStuname(String stuname) {
+        this.stuname = stuname;
+    }
+    public String getStusex() {
+        return stusex;
+    }
+    public void setStusex(String stusex) {
+        this.stusex = stusex;
+    }
+    public Double getStuscore() {
+        return stuscore;
+    }
+    public void setStuscore(Double stuscore) {
+        this.stuscore = stuscore;
+    }
+    
+    
+}

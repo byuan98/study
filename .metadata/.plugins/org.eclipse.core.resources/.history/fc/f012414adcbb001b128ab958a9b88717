@@ -1,0 +1,29 @@
+package com.godfery.test;
+
+public class TestOne {
+
+    public static void main(String[] args) {
+        System.out.println(numberMaxSecond(new int[] {1,8,6,2,5,4,8,3,7}));
+
+    }
+    
+    public static int numberMaxSecond(int[] arrayNumber) {
+        int numberMax=arrayNumber[0];
+        int numberMaxIndex=0;
+        int numberMaxSecond=0;
+        int numberMaxSecondIndex=0;
+        
+        for(int index=0; index<arrayNumber.length; index++) {
+            if(numberMax<arrayNumber[index]) {
+                numberMaxSecond=numberMax;
+                numberMaxSecondIndex=numberMaxIndex;
+                numberMax=arrayNumber[index];
+                numberMaxIndex=index;
+            }
+        }
+        int distance=Math.abs(numberMaxIndex-numberMaxSecondIndex);
+//        return distance*numberMaxSecond;
+        return numberMaxSecond;
+    } 
+
+}

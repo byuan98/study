@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>原生态的Ajax</title>
+</head>
+  <script type="text/javascript" src="<core:url value='/js/jquery-1.6.4.min.js'/>"></script>
+  <script type="text/javascript">
+  //Ajax核心思路：把数据通过Ajax发送给Servlet，把servlet响应的信息写到span_name；步骤如下：
+    $(function(){
+    	$("input[name='name_post']").bind("blur",function(){
+    		var name=$(this).val();
+    		//1、获取XMLHttpRequest对象
+    		var xmlHttpRequest;
+    		try{
+    			xmlHttpRequest=new XMLHttpRequest();//非IE浏览器的获取方式
+    		}catch(e){
+    			try{
+    				xmlHttpRequest=new ActiveXObject("Microsoft.XMLHTTP");//IE5以后的浏览器
+    			}catch(e){
+    				xmlHttpRequest=new ActiveXObject("Msxm12.XMLHTTP");//IE5以前的浏览器
+    			}
+    		}
+    		//2、调用open方法开启连接
+    		xmlHttpRequest.open("POST", "<core:url value='/ajax/getandpost'/>", true);
+    		//open方法参数1：请求的方式get/post
+    		//open方法参数2：请求的url
+    		//open方法参数3：是否异步
+    		
+    		//3、监听readystatechange事件，获取相应数据
+    		xmlHttpRequest.onreadystatechange=function(){
+    			if(xmlHttpRequest.readyState==4&&xmlHttpRequest.status==200){
+    				$("#span_name_get").text(xmlHttpRequest.responseText);
+    			}
+    		}
+    		//4、调用send方法发送请求
+    		//与get请求不同的地方：需要设置一个请求头，模拟表单的post请求
+    		xmlHttpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    		xmlHttpRequest.send(encodeURI("name="+name));
+    		//如果是get请求方式，请求参数在url中，send方法参数为null
+    		//如果是post请求方式，send的参数需填写请求参数，格式：参数名=参数值&参数名=参数值
+    		
+    	});
+    	$("input[name='name_post']").bind("focus", function(){
+    		$(this).val("");
+    	});
+    });
+  </script>
+<body>
+  <form action="" enctype="application/x-www-form-urlencoded"></form>
+  post请求：<input type="text" name="name_post" value="请输入用户名"/><span id="span_name_post"></span>
+</body>
+</html>

@@ -1,0 +1,14 @@
+package test;
+
+import java.io.*;
+import java.net.*;
+
+public class TestThree {
+//    UDP连接方式（接收方）
+    public static void main(String[] args) {
+//        1、创建一个UDP的Socket，并指定要开启的端口
+        DatagramSocket receive=new DatagramSocket(20211);
+
+    }
+
+}

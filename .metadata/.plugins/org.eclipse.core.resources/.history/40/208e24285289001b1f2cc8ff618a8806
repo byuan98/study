@@ -1,0 +1,42 @@
+package servlet;
+
+import java.io.IOException;
+import java.sql.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+
+import com.mysql.jdbc.PreparedStatement;
+
+public class StuLogin extends HttpServlet{
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        String sname=req.getParameter("sname");
+        String spwd=req.getParameter("spwd");
+        
+        Connection con=null;
+        java.sql.PreparedStatement pre=null;
+        StuLogin stu=null;
+        java.sql.ResultSet=null;
+        String sql="select * from stulogin where sname=? and spwd=?";
+        try {
+            con=util.JbdcUtil.getConnection();
+            pre=con.prepareStatement(sql);
+            pre.setString(1, sname);
+            pre.setString(2, spwd);
+            set=pre.executeQuery();
+            
+            
+            
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
+    
+
+}

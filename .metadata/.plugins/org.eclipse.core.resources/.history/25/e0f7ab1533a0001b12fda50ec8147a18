@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 声明区 -->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+
+<mapper namespace="mapper.MybatisStudentMapper"> <!-- 数据区 -->
+    
+    <resultMap type="Student" id="studentMap">
+        <!-- id子标签:指定表的主键列于对象对应属性的关系 -->
+        <!-- 子标签的column属性:表的列 -->
+        <!-- 子标签的property属性:对象的属性 -->
+        <!-- 子标签的jdbcType属性:指定列类型 -->
+        <!-- 子标签的javaType属性:指定对象属性的类型 -->
+        <id column="stuid" property="id" jdbcType="INTEGER"/>
+        <!-- result子标签:指定表的非主键列与对象对应属性的关系 -->
+        <!-- 列名与属性名一致的result可以省略 -->
+        <!-- <result column="stuname" property="name" javaType="java.lang.String"/> -->
+        <!-- <result column="stusex" property="sex" javaType="java.lang.String"/> -->
+        <!-- id子标签和result子标签都是在调用set方法给对象的属性赋值 -->
+    </resultMap>
+    
+    <!-- Integer updateStudent(Student stu);//修改学生信息,返回所影响的行数 -->
+    <update id="updateStudent" parameterType="Student">
+        update student set 
+        <!-- 标签的test属性中提到的变量必须是参数对象的属性 -->
+        <if test="stuname != null">
+            stuname=#{stuname},
+        </if>
+        <if test="stusex != null">
+            stusex=#{stusex},
+        </if>
+        <if test="stuscore != null">
+            stuscore=#{stuscore},
+        </if>
+        <if test="stubirthday != null">
+            stubirthday=#{stubirthday}
+        </if>
+        where stuid=#{stuid}
+        <!-- 这段代码有个问题,如果stubirthday没有值,上面的片段就会多一个逗号,
+             后面的trim标签可以解决这个问题
+         -->
+    </update>
+    
+    <!-- List<Student> getPartStudent(Student stu);//根据where条件获取部分学生 -->
+    <!-- 条件查询,那个有值那个就作为条件 -->
+    <select id="getPartStudent" resultType="Student">
+        select * from student where 1=1  <!-- 每个语句之前都有一个and,这里我们设置一个始终成立的条件来帮助拼凑and -->
+        <!-- 一开始我的想法是添加一个stuid的条件,但转念一想,这个按照id查取一个学生没有区别
+        <if test="stuid != null">
+            stuid=#{stuid},
+        </if> -->
+        <if test="stuname != null">
+            and stuname=#{stuname}
+        </if>
+        <if test="stusex != null">
+            and stusex=#{stusex}
+        </if>
+        <if test="stuscore != null">
+            and stuscore=#{stuscore}
+        </if>
+        <if test="stubirthday != null">
+            and stubirthday=#{stubirthday}
+        </if>
+    </select>
+    
+    <!-- List<Student> getPartStudentByScore(Double lowScore, Double highScore);//根据分数范围来获取部分学生 -->
+    <!-- 如果参数列表内参数只有一个单值数据,test必须使用_parameter来表示参数的值 -->
+    <!-- 如果参数列表内参数有多个单值数据,test使用param1、param2...来表示参数的值 -->
+    <select id="getPartStudentByScore" resultType="Student">
+        select * from student where 1=1
+        <if test="param1 != null">
+            and stuscore &gt; #{0} <!-- 字符实体 &gt; > -->
+        </if>
+        <if test="param2 != null">
+            and stuscore &lt; #{1} <!-- 字符实体 &lt; < -->
+        </if>
+    </select>
+    
+    <!-- List<Student> getOneOrAllStudent(Integer stuid);//获取一个或全部学生 -->
+    <!-- 如果传入的参数为null,则获取全部 -->
+    <select id="getOneOrAllStudent" resultType="Student">
+        select * from student where 1=1
+        <if test="_parameter != null"> <!-- 这里必须使用_parameter -->
+            and stuid=#{stuid}
+        </if>
+    </select>
+    
+    <!-- List<Student> getPartStudentByFairScore(Double fairScore);//根据一个合理的分数来查询部分学生 -->
+    <!-- 如果参数不为null,并且合法则根据该分数进行查询 -->
+    <select id="getPartStudentByFairScore" resultType="Student">
+        select * from student where 1=1
+        <!-- gte >=;let <= -->
+        <if test="_parameter != null and _parameter gte 0 and _parameter lte 100">
+            and stuscore=#{stuscore}
+        </if>
+    </select>
+    
+    <!-- Integer updateScoreByParameter(Integer parameter);//根据参数修改分数,大于0为男生,小于0为女生,0为全部 -->
+    <update id="updateScoreByParameter">
+        update student set stuscore=stuscore+1 where
+        <choose>
+            <when test="_parameter gt 0"> <!-- 大于0 -->
+                stusex="男"
+            </when>
+            <when test="_parameter lt 0"> <!-- 小于0 -->
+                stusex="女"
+            </when>
+            <otherwise> <!-- 其他情况,等于0 -->
+                1=1 <!--始终成立,实现修改全部-->
+            </otherwise>
+        </choose>
+    </update>
+    
+    <!-- foreach:遍历数组,集合 -->
+    <!-- collection:如果参数为集合值为list,如果参数是数组值为array,如果参数添加了@Param注解,值为注解的值 -->
+    <!-- open:整体前加的片段 -->
+    <!-- close:整体后加的片段 -->
+    <!-- item:给元素定义的名字 -->
+    <!-- separator:每个判断之间的分隔符 -->
+    <!-- insert into student(stuname,stusex,stuscore,stubirthday) values(xx,xx,xx,xx),(xx,xx,xx,xx),(xx,xx,xx,xx)-->
+
+    <!-- Integer addAllStudentParameterList(List<Student> studentList);//将列表的所有学生批量增加到数据库中 -->
+    <insert id="addAllStudentParameterList" parameterType="java.util.List">
+        insert into student(stuname,stusex,stuscore,stubirthday)
+        <foreach collection="list" open="values" close="" item="stu" separator=",">
+            (#{stu.stuname},#{stu.stusex},#{stu.stuscore},#{stu.stubirthday})
+        </foreach>
+    </insert>
+    
+    <!-- List<Student> getAllStudentParameterArray(Integer[] stuidArray);//查询stuidArray数组内的学生 -->
+    <select id="getAllStudentParameterArray" parameterType="list" resultType="Student">
+        select * from student where stuid in
+        <foreach collection="array" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    
+    <!-- List<Student> getAllStudentParameterArrayParam(Integer[] stuidArray) {//查询stuidArray数组内的学生结合注解 -->
+    <select id="getAllStudentParameterArrayParam" parameterType="list" resultType="Student">
+        select * from student where stuid in
+        <foreach collection="stuidArray" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </select>
+    
+    <!-- List<Student> getAllStudentByScoreTagWhere(Double stuscore);//获取指定分数的部分学生结合where标签 -->
+    <select id="getAllStudentByScoreTagWhere" resultType="Student">
+        select * from student
+        <where>
+            <if test="_parameter != null and _parameter gte 0 and _parameter lte 100">
+                stuscore=#{stuscore}
+            </if>
+        </where>
+    </select>
+    
+    <!-- List<Student> getAllStudentBySexAndScoreTagWhere(String stusex, Double stuscore);//通过分数与性别获取部分学生结合where标签 -->
+    <select id="getAllStudentBySexAndScoreTagWhere" resultType="Student">
+        select * from student
+        <where>
+            <if test="param1 eq '男'.toString() or param1 eq '女'.toString()">
+                stusex=#{0}
+            </if>
+            <if test="param2 != null and param2 gte 0 and param2 lte 100">
+                and stuscore=#{1} <!-- 这里and去除会报错 -->
+            </if>
+        </where>
+    </select>
+    
+    <!-- public Integer updateStudentTagSet(Student stu);//修改学生信息结合set标签 -->
+    <update id="updateStudentTagSet" parameterType="Student"> <!-- set标签只能用于update -->
+        update student 
+        <set>
+	        <if test="stuname != null">
+	            stuname=#{stuname},
+	        </if>
+	        <if test="stusex != null">
+	            stusex=#{stusex},
+	        </if>
+	        <if test="stuscore != null">
+	            stuscore=#{stuscore},
+	        </if>
+	        <if test="stubirthday != null">
+	            stubirthday=#{stubirthday}, <!-- set标签可以智能的去除末尾的空格 -->
+	        </if>
+        </set>
+        <where>
+            <if test="stuid != null">
+                stuid=#{stuid}
+            </if>
+        </where>
+    </update>
+    
+</mapper>

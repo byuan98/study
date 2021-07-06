@@ -1,0 +1,8 @@
+package day84web;
+
+public class ClassTest {
+
+    public static void main(String[] args) {
+        
+    }
+}

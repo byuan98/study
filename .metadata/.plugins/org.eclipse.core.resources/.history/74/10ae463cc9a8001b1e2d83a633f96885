@@ -1,0 +1,38 @@
+package com.godfery.entity;
+
+import java.io.Serializable;
+
+public class Teacher implements Serializable{
+    private Integer teaid;
+    private String teaname;
+    private String teasubject;
+    
+    public Teacher() {
+
+    }
+    public Teacher(Integer teaid, String teaname, String teasubject) {
+        this.teaid = teaid;
+        this.teaname = teaname;
+        this.teasubject = teasubject;
+    }
+    
+    public Integer getTeaid() {
+        return teaid;
+    }
+    public Teacher setTeaid(Integer teaid) {
+        this.teaid = teaid;
+        return this;
+    }
+    public String getTeaname() {
+        return teaname;
+    }
+    public void setTeaname(String teaname) {
+        this.teaname = teaname;
+    }
+    public String getTeasubject() {
+        return teasubject;
+    }
+    public void setTeasubject(String teasubject) {
+        this.teasubject = teasubject;
+    }
+}

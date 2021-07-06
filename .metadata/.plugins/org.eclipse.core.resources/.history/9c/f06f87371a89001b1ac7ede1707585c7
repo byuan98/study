@@ -1,0 +1,22 @@
+package code;
+
+public class JdbcUtil {
+    private static final String DRIVER_NAME;
+    private static final String URL;
+    private static final String USER;
+    private static final String PASSWORD;
+    
+    static {
+        DRIVER_NAME="";
+        URL="";
+        USER="";
+        PASSWORD="";
+    }
+    
+
+    public static void main(String[] args) {
+        
+
+    }
+
+}

@@ -1,0 +1,16 @@
+package test;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+
+public class TestOne {
+    public static void main(String[] args) {
+//        Document doc=
+    }
+}
+
+public static Document xmlDoc(String fileName) {
+//    创建文档解析器工厂
+    DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+}

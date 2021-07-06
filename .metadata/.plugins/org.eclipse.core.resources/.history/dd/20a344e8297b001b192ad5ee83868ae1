@@ -1,0 +1,20 @@
+package test;
+
+public class TestFour {
+//  2、创建线程方式2
+    public static void main(String[] args) {
+        Thread t1=new Thread(new MyRunnable(),"打印数字的线程");
+        t1.start();
+
+    }
+
+}
+
+class MyRunnable implements Runnable{//1、创建Runnable的实现类
+    public void run() {
+        for(int count=0;count<20;count++) {
+            System.out.println(Thread.currentThread().getName().toString());
+        }
+    }
+    
+}

@@ -1,0 +1,31 @@
+package com.godfery.test;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.godfery.entity.Student;
+import com.godfery.entity.Teacher;
+import com.godfery.util.HibernateSessionFactory;
+
+public class HibernateText {
+    public static void main(String[] args) {
+        Session session=HibernateSessionFactory.getSession();
+        Transaction transaction=session.getTransaction();
+        
+        transaction.begin();//开启事务
+        
+//        检索方式四:Criteria接口
+        Criteria criteria=session.createCriteria(Student.class);
+        System.out.println(criteria.list());//获取所有
+        
+        crt
+
+        
+        transaction.commit();//提交事务
+        session.close();
+    }
+}

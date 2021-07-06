@@ -1,0 +1,11 @@
+package cn.godfery.test;
+
+import java.util.Arrays;
+
+public class TestTwo {
+//    Lambda表达式案例二：比较器
+    public static void main(String[] args) {
+        String[] stringArray= {"a", "abc", "ab"};
+        Arrays.sort(stringArray);
+    }
+}

@@ -1,0 +1,39 @@
+package test;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+
+public class TestTwo {
+
+    public static void main(String[] args) {
+
+    }
+
+}
+
+interface Person{//1、创建接口
+    public Integer add(Integer number1, Integer number2);
+    public void work();
+}
+
+class Teacher implements Person{//2、创建接口的实现类
+    public Integer add(Integer number1, Integer number2) {
+        System.out.println("目标对象的add方法:"+number1+"+"+number2);
+        return number1+number2;
+    }
+    public void work() {
+        System.out.println("目标对象的work方法");
+    }
+}
+
+//3、创建一个代理对象工厂类,实现InvocationHandler接口
+class ProxyFactoryHandler implements InvocationHandler{
+    
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        return null;
+    }
+
+}
+
+
+

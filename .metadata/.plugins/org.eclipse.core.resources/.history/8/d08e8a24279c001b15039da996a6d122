@@ -1,0 +1,20 @@
+package test;
+
+import org.junit.jupiter.api.Test;
+
+public class TestTwo {
+    @Test
+    public static void showOne() {
+        System.out.println("one");
+    }
+    
+    @Test
+    public static void showTwo() {
+        System.out.println("two");
+    }
+    
+    @Test
+    public static void showThree() {
+        System.out.println("three");
+    }
+}

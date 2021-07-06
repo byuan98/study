@@ -1,0 +1,24 @@
+package test;
+
+public class TestTwo {
+//  线程
+    public static void main(String[] args) {
+//        进程：电脑中正在运行的程序
+//        线程：电脑中正在运行的程序中正在执行的代码块
+//        线程是进程的执行单元，一个进程至少包含一个线程
+        
+//        栈：方法、堆：对象
+//        
+//            
+        Student stu=new Student();
+        System.gc();
+        System.out.println(stu);
+
+    }
+
+}
+class Student{
+    public static void main(String[] args) {
+        System.out.println("Student");
+    }
+}

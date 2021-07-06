@@ -1,0 +1,17 @@
+package test;
+
+public class TestSeven {
+
+    public static void main(String[] args) {
+
+    }
+}
+
+class Product{//产品类，生产者要生产的内容
+    Integer number;//计数，进入内存后会赋初始值0；
+    Boolean exist=false;//产品是否存在，初始默认为false，不存在
+}
+
+class Producer extends Thread{//生产者类，用以生产产品
+    
+}

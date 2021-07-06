@@ -1,0 +1,23 @@
+package test;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import entity.Student;
+
+public class TestOne {
+    
+    public static void main(String[] args) throws Exception {
+        SqlSessionFactoryBuilder builder=new SqlSessionFactoryBuilder();
+        File file=new File("day86web/xml/mybatis_configure.xml");
+        SqlSessionFactory factory=builder.build(new FileInputStream(file));
+        SqlSession session=factory.openSession();//
+        
+        Student stu=session.selectOne("getOne", 1);
+    }
+}

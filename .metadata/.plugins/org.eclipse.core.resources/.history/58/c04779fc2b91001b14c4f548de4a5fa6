@@ -1,0 +1,13 @@
+package dao;
+
+import java.util.ArrayList;
+
+public class StudentDao implements StudentDaoInter{
+
+    @Override
+    public ArrayList<E> getAllStudent() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+}

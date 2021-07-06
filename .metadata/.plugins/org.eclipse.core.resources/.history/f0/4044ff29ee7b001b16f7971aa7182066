@@ -1,0 +1,20 @@
+package test;
+
+public class TestThree {
+//  ‘Ÿ’Ω≥µ∆±
+    public static void main(String[] args) {
+
+    }
+}
+
+class Train{
+    Train train;
+    static Integer seatId=1;
+}
+
+class Ticketing extends Thread{
+    Train train;
+    public void run() {
+        while(true) {}
+    }
+}

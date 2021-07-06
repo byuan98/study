@@ -1,0 +1,23 @@
+package test;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+
+public class TestThree {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+    }
+
+}
+
+//1、创建一个代理对象工厂类,实现接口
+class ProxyFactoryHandler implements InvocationHandler{
+
+    
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        return null;
+    }
+
+}

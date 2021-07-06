@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="UTF-8">
+       <title>Insert title here</title>
+    </head>
+<body>
+<form method="get" action="">
+    <table>
+        <tr>
+            <th>学生名字：</th>
+            <td><input type="text" name="sname"></td>
+        </tr>
+        <tr>
+            <th>学生密码：</th>
+            <td><input type="password" name="sname"></td>
+        </tr>
+        <tr>
+        <th colspan="2">
+            <input type="reset" value="重置">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" value="登录">
+        </th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

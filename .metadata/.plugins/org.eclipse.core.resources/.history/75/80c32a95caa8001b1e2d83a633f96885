@@ -1,0 +1,23 @@
+package com.godfery.test;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.godfery.entity.Student;
+import com.godfery.util.HibernateSessionFactory;
+
+public class HibernateText {
+    public static void main(String[] args) {
+        Session session=HibernateSessionFactory().getSession();
+        Transaction transaction=session.getTransaction();
+        
+        transaction.begin();//开启事务
+        
+        
+        transaction.commit();//提交事务
+        session.close();
+    }
+}

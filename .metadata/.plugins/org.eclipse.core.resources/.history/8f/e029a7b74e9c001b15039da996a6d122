@@ -1,0 +1,16 @@
+package test;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+
+@MyAnnotation
+public class TestFour {
+    public static void main(String[] args) {
+        Integer number=100;
+    }
+    
+    @Target(ElementType.TYPE)
+    @interface MyAnnotation{
+        
+    }
+}

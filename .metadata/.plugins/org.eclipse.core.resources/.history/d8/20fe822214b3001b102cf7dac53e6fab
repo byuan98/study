@@ -1,0 +1,5 @@
+package com.godfery.dao;
+
+public class UserDao {
+
+}

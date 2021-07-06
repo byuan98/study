@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+    <!-- 指定类名和表名 -->
+    <class name="com.godfery.entity.Student" table="student">
+        <!-- 指定主键列对应的属性 -->
+        <id name="stuid" column="stuid" type="string">
+            <generator class="uuid"/><!-- 主键自增方式:uuid -->
+        </id>
+        <property name="stuname" column="stuname" type="string"/>
+        <property name="stuscore" column="stuscore" type="double"/>
+    </class>
+</hibernate-mapping>

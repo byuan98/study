@@ -1,0 +1,17 @@
+package job;
+
+import java.util.*;
+
+public class CollectJob {
+
+    public static void main(String[] args) throws Exception {
+
+    }
+}
+
+class Teacher extends Thread{
+    List<String> jobs=new ArrayList();
+    public void run() {
+        System.out.println("ÊÕ×÷Òµ");
+    }
+}

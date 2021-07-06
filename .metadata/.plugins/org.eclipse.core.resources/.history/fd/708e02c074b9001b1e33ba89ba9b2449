@@ -1,0 +1,12 @@
+package com.godfery.test;
+
+import java.util.*;
+
+public class TestThree {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("请输入行：");
+        Integer row=input.nextInt(); 
+        System.out.println(row);
+    }
+}

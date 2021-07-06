@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 声明区 -->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+
+<!-- 引入dtd(document type definde)文件
+     xml是可扩展的标签语言(标签自定义)
+     dtd文件:规范当前xml文件的语法:可以有哪些标签,标签可以有那些属性 标签之间的嵌套关系
+-->
+
+<mapper namespace="/"> <!-- 数据区 -->
+    <!-- select标签:封装select语句
+         属性id:必须唯一,便于调用
+         属性parameterType:占位符的数据类型
+         属性resultType:结果集每行要被解析为什么类型的对象(全包路径)
+    -->
+    <!-- Student getOne(Integer stuid)//获取一个 -->
+    <select id="getOne" resultType="entity.Student">
+        select * from student where stuid=#{stuid} <!-- 封装SQL语句,占位#{} -->
+    </select>
+    
+    <!-- Student getAll()//获取全部 -->
+    <select id="getAll" resultType="entity.Student">
+        select * from student
+    </select>
+    
+    <!-- Integer addOne(Student stu)//添加一个,返回影响行数 -->
+    <insert id="addOne" parameterType="entity.Student">
+        insert into student(stuname,stuscore,stubirthday)values(#{stuname},#{stuscore},#{stubirthday})
+    </insert>
+    
+    <!-- Integer updateOne(Student stu)//修改一个,返回影响行数 -->
+    <update id="updateOne" parameterType="entity.Student">
+        update student set stuname=#{stuname},stuscore=#{stuscore},stubirthday=#{stubirthday} where stuid=#{stuid}
+    </update>
+    
+    <!-- Integer deleteOne(Integer stuid)//删除一个,返回影响行数 -->
+    <delete id="deleteOne" parameterType="Integer">
+        delete from student where stuid=#{stuid}
+    </delete>
+</mapper>

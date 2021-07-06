@@ -1,0 +1,54 @@
+package test;
+
+import java.io.File;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class TestOne {
+    static String fileName="xml/student.xml";
+    public static void main(String[] args) throws Exception {
+//        读取xml文件,获取一个document对象
+        Document doc=xmlDoc(fileName);
+        
+//        2、修改
+//        更改第一个student标签的id属性
+        Element stuEle=(Element)doc.getElementsByTagName("student").item(0);//此处的(0)是只有一个,单纯为了格式才写(0)
+        stuEle.setAttribute("id", "stu001");//修改id属性
+        stuEle.setAttribute("cardid", "4127010000");//添加cardid属性
+        
+//        修改第一个student标签的sname的文本内容
+        Element snameEle=(Element)stuEle.getElementsByTagName("sname").item(0);//此处的(0)是拿出第(0)个
+        snameEle.setTextContent("Echo0");
+        
+        docXml(doc,fileName);//将document对象中的信息刷新到xml中(必须要有此步骤,更改只是更改对象,必须写入)
+    }
+    
+    public static Document xmlDoc(String fileName) throws Exception {//读取xml文件为domcument对象
+//        创建文档解析器工厂对象
+        DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+
+//        由工厂对象创建文档解析器对象
+        DocumentBuilder builder=factory.newDocumentBuilder();
+        
+//        解析器对象解析xml为document对象
+        return builder.parse(new File(fileName));   
+    }
+    
+    public static void docXml(Document doc, String fileName) throws Exception {//把更改后的document对象的信息写入xml文件中
+//        创建转换器工程对象
+        TransformerFactory factory=TransformerFactory.newInstance();
+        
+//        根据工厂对象创建转换器对象
+        Transformer tf=factory.newTransformer();
+        tf.transform(new DOMSource(doc), new StreamResult(new File(fileName)));
+    }
+}

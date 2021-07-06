@@ -1,0 +1,38 @@
+package com.godfery.test;
+
+public class TestTwo {
+    private Integer TestTwoId;
+    private String TestTwoName;
+
+    public TestTwo() {
+    } 
+    
+    public TestTwo(Integer testTwoId, String testTwoName) {
+        TestTwoId = testTwoId;
+        TestTwoName = testTwoName;
+    }
+    public Integer getTestTwoId() {
+        return TestTwoId;
+    }
+    public void setTestTwoId(Integer testTwoId) {
+        TestTwoId = testTwoId;
+    }
+    public String getTestTwoName() {
+        return TestTwoName;
+    }
+    public void setTestTwoName(String testTwoName) {
+        TestTwoName = testTwoName;
+    }
+    
+    public String toString() {
+        return "TestTwo [TestTwoId=" + TestTwoId + ", TestTwoName=" + TestTwoName + "]";
+    }
+    
+    public static void main(String[] args) {
+        final TestTwo testTwo1=new TestTwo(2021001, "Godfery");
+        testTwo1.setTestTwoId(2021002);
+        System.out.println(testTwo1);
+
+    }
+
+}

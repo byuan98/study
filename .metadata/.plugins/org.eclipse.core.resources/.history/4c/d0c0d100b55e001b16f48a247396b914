@@ -1,0 +1,15 @@
+package test;
+
+public class TestOne {
+
+	public static void main(String[] args) {
+		for(int number=0;number<100;number++) {
+			System.out.println(Math.random()*10);
+		}
+			
+			
+		}
+
+	}
+
+}

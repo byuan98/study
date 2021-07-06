@@ -1,0 +1,14 @@
+package com.godfery.test;
+
+import java.util.*;
+
+public class TestThree {
+
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        String str=input.next();
+        
+        System.out.println(str);
+    
+    }
+}

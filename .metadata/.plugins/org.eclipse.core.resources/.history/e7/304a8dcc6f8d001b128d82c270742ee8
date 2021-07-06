@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <%@ page import=java.util.* %>
+  <%@ page import=entity.Student %>
+  <%
+    ArrayList<Student>list=new ArrayList();
+    list.add(new Studnet(2021001,"Godfery","123456"));
+    list.add(2);
+    list.add(3);
+    Map<String,Integer>map=new HashMap();
+    map.put("value1",1);
+    map.put("value2",2);
+    map.put("value3",3);
+    
+    //EL只能操作域属性
+    pageContext.setAttribute("list", list);
+    session.setAttribute("map", map);
+  %>
+  list[0]=${list[0]}</br>
+
+</body>
+</html>

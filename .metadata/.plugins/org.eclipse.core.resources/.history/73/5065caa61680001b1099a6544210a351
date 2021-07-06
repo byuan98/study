@@ -1,0 +1,17 @@
+package test;
+
+public class TestTwo {
+//    利用多例实现枚举
+    public static void main(String[] args) {
+        
+
+    }
+}
+
+class Size{
+    public String name;
+    private Size(String name) {
+        this.name=name;
+    }
+    public static final BIG=new Size("大");
+}

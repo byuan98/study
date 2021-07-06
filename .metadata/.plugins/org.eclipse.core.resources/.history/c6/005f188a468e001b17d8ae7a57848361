@@ -1,0 +1,31 @@
+package test;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/test/download")
+public class TestDownload extends HttpServlet{
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("uft-8");
+        resp.setContentType("text/html;charset=utf-8");
+        String fileName=req.getParameter("fileName");
+        String fileNameNew=new String(fileName.getBytes("iso-8859-1"),"utf-8");
+        
+        String path=req.getServletContext().getRealPath("/imgs/"+fileNameNew);
+        
+        
+    }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+   
+
+}

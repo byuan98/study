@@ -1,0 +1,10 @@
+1612517485801	Delete elements
+1612518169503	Encapsulate field 'name'
+1612518285749	Delete element
+1612518471472	Rename type 'f'
+1612524924655	Rename type 'printArrayOne'
+1612524934975	Rename type 'printArrayTwo'
+1612525365033	Extract method 'extracted'
+1612525436778	Rename type 'ArrayMerge'
+1612527221880	Extract method 'printArray'
+1612527287732	Copy compilation units

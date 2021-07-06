@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.FileSystem"/>
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.FileSystem"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="FileSystemExportWizard">
+		<item key="WizardFileSystemResourceExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID" value="false"/>
+		<item key="WizardFileSystemResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="false"/>
+		<item key="WizardFileSystemResourceExportPage1.STORE_RESOLVE_LINKED_RESOURCES_ID" value="false"/>
+		<list key="WizardFileSystemResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="D:\Study\Java\JavaJob\javajob_20210301"/>
+			<item value="C:\Users\Godfery\Desktop"/>
+			<item value="D:\新建文件夹\2021年2月11日作业进度"/>
+			<item value="D:\新建文件夹\2021年2月8日作业进度"/>
+			<item value="D:\新建文件夹\2021年2月7日作业进度"/>
+			<item value="D:\新建文件夹\2021年2月6日作业进度"/>
+			<item value="D:\新建文件夹\2021年2月5日作业进度"/>
+			<item value="D:\新建文件夹\2021年2月4日作业进度"/>
+			<item value="D:\新建文件夹\2021年2月3日作业进度"/>
+			<item value="C:\Users\Godfery\Desktop\2021年2月1日作业进度"/>
+			<item value="D:\Study\Java\JavaJob\javajob_20210126\程序题"/>
+			<item value="D:\Study\Java\JavaJob\javajob_20210125"/>
+			<item value="D:\Study\Java\JavaJob\javajob_20210122\pdf"/>
+			<item value="D:\Study\课程\javajob_20210122\程序设计"/>
+			<item value="C:\Users\Godfery\Desktop\javajob_20210120\ppt6_7"/>
+			<item value="C:\Users\Godfery\Desktop\javajob_20210120\多态的四种使用场景代码"/>
+			<item value="D:\Study\课程\javajob_20210119\ppt"/>
+			<item value="C:\Users\Godfery\Desktop\javajob_20210118\作业3_两个排序"/>
+			<item value="C:\Users\Godfery\Desktop\javajob_20210118\作业4_pdf+50算法"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.oomph"/>
+			<item value="org.eclipse.pde.PDE"/>
+			<item value="org.eclipse.jst.ws.ui.new"/>
+		</list>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="-129"/>
+		<item key="DIALOG_Y_ORIGIN" value="-238"/>
+		<item key="DIALOG_WIDTH" value="816"/>
+		<item key="DIALOG_HEIGHT" value="978"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
+	</section>
+	<section name="FileSystemImportWizard">
+		<item key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID" value="false"/>
+		<item key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID" value="false"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="D:\Code\Java\study\day0001"/>
+			<item value="D:\新建文件夹\2021年2月10日作业进度"/>
+			<item value="D:\新建文件夹\2021年2月2日作业进度"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_WIDTH" value="525"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_HEIGHT" value="675"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+		<list key="orderedElements">
+			<item value="InsertionSort/run"/>
+			<item value="MultiplicationTable/run"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.debug.ui/org.eclipse.debug.internal.ui.quickaccess.RunQuickAccessComputer"/>
+			<item value="org.eclipse.debug.ui/org.eclipse.debug.internal.ui.quickaccess.RunQuickAccessComputer"/>
+		</list>
+		<list key="textEntries">
+			<item value="1"/>
+			<item value="1"/>
+		</list>
+		<list key="textArray">
+			<item value="sort"/>
+			<item value="table"/>
+		</list>
+	</section>
+	<section name="PreferencesExportWizard">
+	</section>
+	<section name="PreferencesImportWizard">
+	</section>
+	<section name="EditorSelectionDialog">
+		<item key="EditorSelectionDialog.STORE_ID_FILE_EXTENSION" value=".jsp"/>
+		<item key="EditorSelectionDialog.STORE_ID_INTERNAL_EXTERNAL" value="false"/>
+		<item key="EditorSelectionDialog.STORE_ID_DESCR" value="org.eclipse.pde.ui.schemaPreviewLauncher"/>
+	</section>
+</section>

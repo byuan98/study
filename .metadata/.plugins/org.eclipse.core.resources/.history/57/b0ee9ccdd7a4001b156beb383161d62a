@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1 align="center">数据回显</h1>
+    <!-- actio的参数是单值数据类型 -->
+    <form action="<core:url value='/test1/method1.action'/>" method="post">
+        stuname=<input type="text" name="stuname" value="${requestScope.stuname}"/>
+        stuscore=<input type="text" name="stuscore" value="${requestScope.stuscore}"/>
+        <input type="submit" value="提交"/>
+    </form>
+
+</body>
+</html>

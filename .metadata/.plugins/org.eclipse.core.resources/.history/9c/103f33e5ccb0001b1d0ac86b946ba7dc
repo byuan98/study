@@ -1,0 +1,26 @@
+package com.godfery.test;
+
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+public class TestOne {
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String str="张雷锋";
+        byte[] bytes=str.getBytes("UTF-8");
+        byte[] bytesCopy=new byte[bytes.length];
+        byte[] bytesCopyCopy=new byte[bytes.length];
+        byte key=3;
+        for(Integer index=0;index<bytes.length;index++) {
+            bytesCopy[index]=(byte) (bytes[index]+key);
+        }
+        for(Integer index=0;index<bytes.length;index++) {
+            bytesCopyCopy[index]=(byte) (bytesCopy[index]-key);
+        }
+        System.out.println(new String(bytes));
+        System.out.println(new String(bytesCopy));
+        System.out.println(new String(bytesCopyCopy));
+    }
+    private static String encoding(String str) throws UnsupportedEncodingException {
+        byte[] byteEncoding=str.getBytes("UTF-8");
+    }
+}

@@ -1,0 +1,11 @@
+package test;
+
+public class TestFive {
+
+    public static void main(String[] args) {
+        
+
+    }
+
+}
+//一个线程只能开启一次，开启多次会杀死main进程

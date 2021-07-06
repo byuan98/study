@@ -1,0 +1,19 @@
+package com.godfery.LeeCode;
+
+public class LeeCode {
+
+    public static void main(String[] args) {
+        
+
+    }
+    
+    private static String encoding() {
+        
+        return null;
+    }
+    
+    private static String decoding() {
+        return null;
+    }
+
+}

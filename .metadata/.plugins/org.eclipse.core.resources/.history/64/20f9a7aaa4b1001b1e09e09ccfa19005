@@ -1,0 +1,73 @@
+package com.godfery.random;
+
+public class RandomImp{
+    public static void main(String[] args) {
+        for(int number=0;number<10000;number++) {
+            System.out.println(randomName());           
+            System.out.println(randomSex());           
+            System.out.println(randomAgeAndWork());           
+            System.out.println(randomSleepTime());         
+            System.out.println(randomReason());         
+        }
+    }
+    public static String randomName() {
+        String[] surname= {"赵","钱","孙","李"};//姓氏
+        String[] name={"一","二","三","四"};//名字
+        String randomName=surname[(int)(Math.random()*surname.length)];
+        int count=(int)(Math.random()*2+1);
+        for(int number=0;number<count;number++) {
+            randomName+=name[(int)(Math.random()*name.length)];
+        }
+        return randomName;
+    }
+
+    public static String randomSex() {
+        return (int)(Math.random()*2)==1?"男":"女";
+    }
+
+    public static String[] randomAgeAndWork() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public static String randomSleepTime() {
+        String[] sleepTime= {"小于5小时","6小时","7小时","8小时","大于8小时"};
+        return sleepTime[(int)(Math.random()*sleepTime.length)];
+    }
+
+    public static String randomReason() {       
+        String[] reason= {"作息异常，熬夜","情绪不稳定","工作、学习压力大","疾病折磨","环境原因","饮食","心理健康因素"};
+        return reason[(int)(Math.random()*reason.length)];
+    }
+
+    public static String randomSleepTimeBegin() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public static String randomSleepTimeLong() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public static String randomIsSleep() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public static String randomIsBig() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public static String randomIsReson() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public static String randomWay() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+}

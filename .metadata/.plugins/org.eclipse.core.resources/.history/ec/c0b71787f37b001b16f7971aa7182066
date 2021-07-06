@@ -1,0 +1,14 @@
+package job;
+
+public class Ticketing {
+
+    public static void main(String[] args) {
+       
+    }
+}
+
+class Ticketing implements Runnable{
+    public void run() {
+        System.out.println();
+    }
+}

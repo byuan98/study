@@ -1,0 +1,26 @@
+package com.godfery.test;
+
+public class TestOne {
+
+    public static void main(String[] args) {
+        numberMaxSecond(new int[] {4,3,2,1,4});
+
+    }
+    
+    public static void numberMaxSecond(int[] arrayNumber) {
+        int number=1;
+        int numberCopy=number;
+        
+        for(int index=0;index<10;index++) {
+            if(index>number) {
+                System.out.println(index);
+                number=index;
+                numberCopy=number;
+                System.out.println("-----"+numberCopy);
+                
+            }
+        }
+        System.out.println("+++++"+numberCopy);
+    } 
+
+}

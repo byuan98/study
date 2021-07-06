@@ -1,0 +1,25 @@
+package test;
+
+import java.util.*;
+
+public class TextFour {
+//  再战交作业
+    public static void main(String[] args) {
+
+    }
+}
+
+class Teacher{
+    private static Teacher teacher=new Teacher();//利用单例模式创建一个唯一的老师
+    private List<String> jobs=new ArrayList();//定义一个集合存放所有同学的作业
+    
+    private Teacher() {
+        
+    }
+    public static Teacher getTeacher() {
+        return teacher;
+    }
+    public void setJobs(String job) {//存放单个同学的作业
+        jobs.add(job);
+    }
+}

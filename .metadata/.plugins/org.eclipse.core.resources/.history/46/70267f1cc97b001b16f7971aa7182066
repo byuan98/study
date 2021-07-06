@@ -1,0 +1,24 @@
+package job;
+
+public class Ticketing {
+
+    public static void main(String[] args) {
+        Ticket t=new Ticket();
+        Thread t11=new Thread(t,"1::");
+        Thread t22=new Thread(t,"2::");
+        Thread t33=new Thread(t,"3::");
+        t11.start();
+        t22.start();
+    }
+}
+
+class Ticket implements Runnable{
+    private static Integer ticketIdPool=1;
+
+    public void run() {
+        while(ticketIdPool>100) {
+            System.out.println(ticketIdPool);
+            ticketIdPool++;
+        }
+    }
+}

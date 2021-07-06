@@ -1,0 +1,50 @@
+package entity;
+
+import java.io.Serializable;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
+//创建bean的注解
+//@Controller //为控制层的类创建bean
+//@Service //为业务层的类创建bean
+//@Repository //为持久层的类创建bean
+@Component("teacher") //不确定为那一层的类创建bean,参数值为bean的名字
+//@Component() //如果不指定名字则默认名为类名首字母小写(teacher)
+@Scope("singleton") //设置作用域
+
+public class Teacher implements Serializable{
+    private Integer teaid;
+    private String teaname;
+    
+    {
+        System.out.println("构造代码块");
+    }
+    
+    public Teacher() {
+
+    }
+    public Teacher(Integer teaid, String teaname) {
+        this.teaid = teaid;
+        this.teaname = teaname;
+    }
+    public Integer getTeaid() {
+        return teaid;
+    }
+    public void setTeaid(Integer teaid) {
+        this.teaid = teaid;
+    }
+    public String getTeaname() {
+        return teaname;
+    }
+    public void setTeaname(String teaname) {
+        this.teaname = teaname;
+    }
+
+    public String toString() {
+        return "Teacher [teaid=" + teaid + ", teaname=" + teaname + "]";
+    }
+}

@@ -1,0 +1,20 @@
+package test;
+
+public class TestOne {
+
+	public static void main(String[] args) {
+		System.out.println(test(0));
+		final int s=test(0);
+
+	}
+	public static int test(int number) {
+		try {
+			return 10/number;
+		}catch (Exception e) {
+			return 100;
+		}finally {
+			return 200;
+		}
+	}
+
+}

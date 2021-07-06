@@ -1,0 +1,22 @@
+package util;
+
+public class JdbcUtil {
+    private static final String DRIVER_NAME;
+    private static final String URL;
+    private static final String USER;
+    private static final String PASSWORD;
+    
+    static {
+        DRIVER_NAME="com.mysql.jdbc.Driver";
+//        URL="jdbc:mysql://192.168.217.19:3306/study?autoReconnect=true&amp;failOverReadOnly=false";
+        URL="jdbc:mysql://192.168.217.19:3306/study";
+        USER="root";
+        PASSWORD="root";
+    }
+    
+    public static void main(String[] args) {
+        
+
+    }
+
+}

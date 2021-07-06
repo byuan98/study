@@ -1,0 +1,27 @@
+package test;
+
+import javax.servlet.ServletRequestAttributeEvent;
+import javax.servlet.ServletRequestAttributeListener;
+import javax.servlet.annotation.WebListener;
+
+@WebListener
+public class TestRequestListener implements ServletRequestAttributeListener{
+    public void attributeAdded(ServletRequestAttributeEvent srae) {
+        System.out.println("Request域添加了属性");
+        System.out.println("属性名为："+srae.getName()+"属性值为："+srae.getValue());
+        System.out.println("----------");
+    }
+
+    public void attributeRemoved(ServletRequestAttributeEvent srae) {
+        System.out.println("Request域删除了属性");
+        System.out.println("属性名为："+srae.getName()+"属性值为："+srae.getValue());
+        System.out.println("----------");
+    }
+
+    public void attributeReplaced(ServletRequestAttributeEvent srae) {
+        System.out.println("Request域修改了属性");
+        System.out.println("旧属性名为："+srae.getName()+"旧属性值为："+srae.getValue());
+        System.out.println("新属性值为："+srae.getServletRequest().getAttribute(srae.getName()));
+        System.out.println("----------");
+    }
+}

@@ -1,0 +1,32 @@
+package test;
+
+import java.io.*;
+import java.util.*;
+
+public class TestOne {
+//    序列化与反序列化流练习
+    public static void main(String[] args) {
+        List<People> crowd=new ArrayList();
+        crowd.add(new People("Godfery",18));//实例化一个学生对象，将其装入列表crowd中
+        crowd.add(new People("Tom",19));
+        crowd.add(new People("echo",17));
+        System.out.println(crowd);
+
+    }
+
+}
+
+class People implements Serializable{//注意事项：序列化与反序列化操作的对象的类必须继承序列化接口Serializable
+    private String name;
+    private Integer age;
+    People(String name, Integer age){
+        this.name=name;
+        this.age=age;
+    }
+    
+    public String toString() {
+        return "name:"+this.name+",age:"+this.age;
+    }
+    
+    
+}

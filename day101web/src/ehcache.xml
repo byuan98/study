@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ehcache>
+    <!-- 持久化保持对象的目录 -->
+    <diskStore path="D:/Z"/>
+    
+    <!-- maxElementsInMemory//最多保存对象的个数 -->
+    <!-- eternal//是否永久保存 -->
+    <!-- timeToIdleSeconds//最多保存时间,单位秒 -->
+    <!-- timeToLiveSeconds//最大存活时间,单位秒 -->
+    <!-- overflowToDisk//是否持久化保持到硬盘上 -->
+    <defaultCache
+        maxElementsInMemory="1"
+        eternal="false"
+        timeToIdleSeconds="0"
+        timeToLiveSeconds="0"
+        overflowToDisk="true"
+    />
+    
+</ehcache>

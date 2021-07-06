@@ -1,0 +1,12 @@
+package com.godfery.util;
+
+public class MyMathImp{
+    
+
+    public static MyMath myMathAdd=(Integer number1, Integer number2);
+    
+    public static void main(String[] args) {
+        System.out.println(myMathAdd.add(1, 2));
+    }
+    
+}

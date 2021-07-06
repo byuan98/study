@@ -1,0 +1,16 @@
+package test;
+
+public class TestSix {
+
+    public static void main(String[] args) {
+        
+
+    }
+
+}
+
+class MyRunnable implements Runnable{//1、创建Runnable的实现类
+    public void run() {//2、实现run方法（封装线程任务）
+        System.out.println("实现的run方法已被执行");
+    }
+}

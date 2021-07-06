@@ -1,0 +1,10 @@
+package test;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/text/upload")
+public class TestUpload extends HttpServlet{
+    
+
+}

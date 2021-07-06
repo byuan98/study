@@ -1,0 +1,17 @@
+package job;
+
+import java.io.*;
+
+public class Statistics {
+
+    public static void main(String[] args) {
+//        遍历文件夹获取文件夹的总字节数
+        File file=new File("D:\\Code\\Java");
+        System.out.println(statisticsStudentJob(file));
+
+    }
+    private static long statisticsStudentJob(File file) {
+        return file.length();
+    }
+
+}

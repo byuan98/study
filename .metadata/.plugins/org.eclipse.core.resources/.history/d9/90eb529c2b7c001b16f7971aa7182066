@@ -1,0 +1,14 @@
+package test;
+
+public class TestSix {
+//  通过synchronized实现线程死锁
+    public static void main(String[] args) {
+        
+
+    }
+}
+
+class SynchronizedDeadlock extends Thread{
+    Object within;//内锁
+    Object external;//外锁
+}

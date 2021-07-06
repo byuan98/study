@@ -1,0 +1,10 @@
+package day84web;
+
+public class ClassTest {
+    
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class cla=Class.forName("day84web.Student");
+        System.out.println(cla.getName());//day84web.Student
+        System.out.println(cla.getSimpleName());//Student
+    }
+}

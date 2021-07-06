@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!-- 声明区 -->
+<archives><!-- 根标签 -->
+    <!-- 标签有两部分可以记录数据:标签的属性+标签的文本内容 -->
+    <school id="GodferySchool">
+        <class id="class_1">
+            <student id="s001"><!-- 一般把具有唯一特征的数据定义为标签的属性 -->
+                <sname>Echo1</sname>
+                <sage>21</sage>
+                <sex>女</sex>
+                <score>34.6</score>
+            </student>
+            <student id="s002">
+                <sname>Echo2</sname>
+                <sage>21</sage>
+                <sex>女</sex>
+                <sdy>true</sdy>
+                <score>34.6</score>
+            </student>
+            <student id="s003"><!-- 一般把具有唯一特征的数据定义为标签的属性 -->
+                <sname>Echo3</sname>
+                <sage>21</sage>
+                <sex>女</sex>
+                <sdy>true</sdy>
+                <score>34.6</score>
+            </student>
+        </class>
+        <class id="class_2">
+            <student id="s004">
+	            <sname>Tom1</sname>
+	            <sage>20</sage>
+	            <sex>男</sex>
+	            <score>74.6</score>
+            </student>
+            <student id="s005">
+	            <sname>Tom2</sname>
+	            <sage>2017</sage>
+	            <sex>男</sex>
+	            <score>87.6</score>
+            </student>
+        </class>
+    </school>
+</archives>

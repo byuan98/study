@@ -1,0 +1,30 @@
+package test;
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+public class TestOne {
+    public static void main(String[] args) throws Exception {
+//        读取xml文件,获取一个document对象
+        Document doc=xmlDoc("xml/student.xml");
+        System.out.println(doc);
+    }
+    
+    public static Document xmlDoc(String fileName) throws Exception {
+//        创建文档解析器工厂对象
+        DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+
+//        由工厂对象创建文档解析器对象
+        DocumentBuilder builder=factory.newDocumentBuilder();
+        
+//        解析器对象解析xml为document对象
+        return builder.parse(new File(fileName));   
+    }
+}

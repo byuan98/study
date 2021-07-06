@@ -1,0 +1,10 @@
+package com.godfery.test;
+
+import java.util.Scanner;
+
+public class TestThree {
+
+    public static void main(String[] args) {
+        
+    }
+}

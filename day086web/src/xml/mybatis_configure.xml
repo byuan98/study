@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 声明区 -->
+
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd"
+>
+
+<configuration>
+    <properties resource="properties/mysql.properties"/>
+    <settings>
+        <!-- 显示SQL语句的日志文件 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <typeAliases> <!--为实体类设置别名-->
+        <typeAlias type="entity.Student" alias="Stu"/>
+    </typeAliases>
+     <!--
+    <typeAliases>
+        <package name="entity"/>
+    </typeAliases>-->
+    <environments default="db_mybatis"> <!-- 默认配置项 -->
+        <environment id="db_mybatis"><!-- 配置项id -->
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED"> <!-- POOLED指的是连接池方式 -->       
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <mappers>
+        <!-- 引入所有的sql映射文件 -->
+        <mapper resource="xml/mybatis_Student.xml"/>
+    </mappers>
+</configuration>

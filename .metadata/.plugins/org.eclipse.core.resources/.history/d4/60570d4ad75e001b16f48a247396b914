@@ -1,0 +1,23 @@
+package test;
+
+import static java.lang.System.currentTimeMillis;
+
+public class TestThree {
+
+	public static void main(String[] args) {
+		long time=currentTimeMillis();
+		long days=time/1000/3600/24;
+		System.out.println(days);
+		
+		//currentTimeMillis()/1000   //秒
+		//currentTimeMillis()/1000/60   //分
+		//currentTimeMillis()/1000/60/60  //时
+		//currentTimeMillis()/1000/60/60/24 //天
+		//currentTimeMillis()/1000/60/60/24/365 //年
+//		System.out.println(1970+(currentTimeMillis()/1000/60/60/24/365));//年
+//		System.out.println(currentTimeMillis()/1000/60/60/24%365/30);
+//		System.out.println(currentTimeMillis()/1000/60/60/24%365%30);
+
+	}
+
+}

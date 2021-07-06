@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>day96web</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 配置SpringMVC的中央控制器 -->
+  <servlet>
+      <servlet-name>springmvc</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+      
+      <!-- 配置初始化参数,指定SpringMVC核心配置文件的位置 -->
+      <init-param>
+          <param-name>contextConfigLocation</param-name>
+          <param-value>classpath:configure/springmvc_configure.xml</param-value>
+      </init-param>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>springmvc</servlet-name>
+      <url-pattern>*.action</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 设置SpringMVC的全站编码 -->
+  <filter>
+      <filter-name>charsetFilter</filter-name>
+      <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+      
+      <!-- 初始化参数指定编码集 -->
+      <init-param>
+          <param-name>encoding</param-name>
+          <param-value>utf-8</param-value>
+      </init-param>
+      
+      <!-- 初始化参数指定是否强制编码 -->
+      <init-param>
+          <param-name>forceEncoding</param-name>
+          <param-value>true</param-value>
+      </init-param>
+  </filter>
+  
+  <!-- 设置拦截规则 -->
+  <filter-mapping>
+      <filter-name>charsetFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+      <dispatcher>REQUEST</dispatcher> <!-- 直接请求被过滤器拦截(默认) -->
+      <dispatcher>FORWARD</dispatcher> <!-- 请求转发被过滤器拦截 -->
+      <dispatcher>INCLUDE</dispatcher> <!-- 请求包含被过滤器拦截 -->
+      <dispatcher>ERROR</dispatcher>   <!-- 错误跳转被过滤器拦截 -->
+  </filter-mapping>
+  
+  <!-- 通过项目初始化参数指定上传文件的目录 -->
+  <context-param>
+      <param-name>uploadPath</param-name>
+      <param-value>D:/Code/Files</param-value>
+  </context-param>
+  
+  <!-- 通过项目初始化参数指定下载文件的目录 -->
+  <context-param>
+      <param-name>downloadPath</param-name>
+      <param-value>/imgs/</param-value>
+  </context-param>
+</web-app>

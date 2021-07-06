@@ -1,0 +1,11 @@
+package com.godfery.mapper;
+
+import java.util.List;
+
+import com.godfery.entity.Student;
+
+public interface MybatisCommunityMapper {
+    
+    public List<Student> getAllStudentByComid(Integer comid);
+    
+}

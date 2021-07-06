@@ -1,0 +1,47 @@
+package entity;
+
+import java.io.Serializable;
+
+public class Student implements Serializable{
+    private Integer sid;
+    private String sname;
+    private Teacher teacher;
+    
+    public Student() {
+
+    }
+    public Student(String sname, Teacher teacher) {
+        this.sname = sname;
+        this.teacher = teacher;
+    }
+    public Student(Integer sid, String sname, Teacher teacher) {
+        this.sid = sid;
+        this.sname = sname;
+        this.teacher = teacher;
+    }
+    public Integer getSid() {
+        return sid;
+    }
+    public void setSid(Integer sid) {
+        this.sid = sid;
+    }
+    public String getSname() {
+        return sname;
+    }
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+    public Teacher getTeacher() {
+        return teacher;
+    }
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public String toString() {
+        return "sid="+this.sid+",sname="+this.sname+",teacher="+this.teacher;
+    }
+    
+    
+    
+}

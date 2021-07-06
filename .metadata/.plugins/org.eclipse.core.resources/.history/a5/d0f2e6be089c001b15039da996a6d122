@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><!-- 声明区 -->
+<dangAn><!-- 根标签 -->
+	<!-- 标签有两部分可以记录数据：标签的属性+标签的文本内容 -->
+	<school id="智游集团">
+		<class id="java1期">
+			<student id="s_001" pid="410185198810000000"><!-- 一般把具有唯一特征的数据定义为标签的属性 -->
+
+				<sage>21</sage>
+				<sex>女</sex>
+				<sdy>true</sdy>
+				<score>34.6</score>
+			</student>
+
+		</class>
+		<class id="java2期">
+			<student><!-- 一般把具有唯一特征的数据定义为标签的属性 -->
+				<sname>韩梅梅3</sname>
+				<sage>11</sage>
+				<sex>女</sex>
+				<sdy>false</sdy>
+				<score>74.6</score>
+			</student>
+			<student id="s0014"><!-- 一般把具有唯一特征的数据定义为标签的属性 -->
+				<sname>韩梅梅4</sname>
+				<sage>17</sage>
+				<sex>女</sex>
+				<sdy>true</sdy>
+				<score>94.6</score>
+			</student>
+			<student>
+				<sname>啊哈哈</sname>
+				<sage>19</sage>
+				<score>11.1</score>
+				<sex>女</sex>
+				<sdy>true</sdy>
+			</student>
+		</class>
+	</school>
+</dangAn>

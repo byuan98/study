@@ -1,0 +1,14 @@
+package test;
+
+public class TestOne {
+
+	public static void main(String[] args) {
+		People p;
+		System.out.println(p);
+		
+	}
+}
+
+abstract class People{
+	abstract void hello();
+}

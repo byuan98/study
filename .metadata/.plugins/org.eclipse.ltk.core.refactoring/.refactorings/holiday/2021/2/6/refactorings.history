@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;holiday&apos;&#x0D;&#x0A;- Original project: &apos;holiday&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     ArrayMaxIndexAll.java&#x0D;&#x0A;     BubbleSort.java&#x0D;&#x0A;     OrderAndReverse.java&#x0D;&#x0A;     OrderSort.java" description="Delete elements" element1="OrderAndReverse.java" element2="ArrayMaxIndexAll.java" element3="OrderSort.java" element4="BubbleSort.java" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="4" stamp="1612434623399" subPackages="false" version="1.0"/>
+</session>

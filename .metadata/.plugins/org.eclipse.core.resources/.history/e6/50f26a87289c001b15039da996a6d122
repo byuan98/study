@@ -1,0 +1,14 @@
+package test;
+
+public class TestThree {
+
+    public static void main(String[] args) {
+        
+
+    }
+    @interface MyAnnotation1{
+        String name();
+        int age();//不可使用包装类
+        float score() default 0;
+    }
+}

@@ -1,0 +1,68 @@
+package entity;
+
+import java.io.Serializable;
+import java.util.Date;
+
+public class Student implements Serializable{
+    private Integer sid;
+    private String sname;
+    private Double ssore;
+    private Date stime;
+    private Integer tid;
+    
+    public Student() {
+   
+    }
+    public Student(String sname, Double ssore, Date stime, Integer tid) {
+        this.sname = sname;
+        this.ssore = ssore;
+        this.stime = stime;
+        this.tid = tid;
+    }
+    public Student(Integer sid, String sname, Double ssore, Date stime, Integer tid) {
+        this.sid = sid;
+        this.sname = sname;
+        this.ssore = ssore;
+        this.stime = stime;
+        this.tid = tid;
+    }
+    public Integer getSid() {
+        return sid;
+    }
+    public void setSid(Integer sid) {
+        this.sid = sid;
+    }
+    public String getSname() {
+        return sname;
+    }
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+    public Double getSsore() {
+        return ssore;
+    }
+    public void setSsore(Double ssore) {
+        this.ssore = ssore;
+    }
+    public Date getStime() {
+        return stime;
+    }
+    public void setStime(Date stime) {
+        this.stime = stime;
+    }
+    public Integer getTid() {
+        return tid;
+    }
+    public void setTid(Integer tid) {
+        this.tid = tid;
+    }
+    public String toString() {
+        return "sid="+sid+", sname="+sname+", ssore="+ssore+", stime="+stime+", tid="+tid;
+    }
+    
+    
+    
+    
+    
+
+}

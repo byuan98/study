@@ -1,0 +1,14 @@
+package bean;
+
+import java.util.List;
+
+public class PagingBean<E>{//泛型类，此类中涉及到的某个类型是变量
+    private Integer pageNumber;//当前页数
+    private Integer pageTotal;//总页数
+    private Integer pageSize;//每页记录数
+    private Integer count;//总记录数
+    private Integer startIndex;//起始索引
+    private List<E> list;//当前页要显示的记录信息
+    private String queryString;//查询条件
+
+}

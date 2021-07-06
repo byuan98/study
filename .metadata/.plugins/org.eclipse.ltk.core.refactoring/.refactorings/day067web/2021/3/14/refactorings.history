@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 5 elements to &apos;lib&apos;&#x0D;&#x0A;- Original project: &apos;day67web&apos;&#x0D;&#x0A;- Destination element: &apos;lib&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     commons-fileupload-1.2.2.jar&#x0D;&#x0A;     jstl-1.2.jar&#x0D;&#x0A;     mysql-connector-java-5.1.15-bin.jar&#x0D;&#x0A;     standard-1.1.2.jar&#x0D;&#x0A;     commons-io-1.4.jar" description="Copy files" element1="WebContent/WEB-INF/lib/commons-fileupload-1.2.2.jar" element2="WebContent/WEB-INF/lib/jstl-1.2.jar" element3="WebContent/WEB-INF/lib/mysql-connector-java-5.1.15-bin.jar" element4="WebContent/WEB-INF/lib/standard-1.1.2.jar" element5="WebContent/WEB-INF/lib/commons-io-1.4.jar" files="5" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1616986294609" target="/day70web/WebContent/WEB-INF/lib" units="0" version="1.0"/>
+</session>

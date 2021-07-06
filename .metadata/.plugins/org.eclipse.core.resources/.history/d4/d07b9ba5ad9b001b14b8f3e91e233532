@@ -1,0 +1,19 @@
+package day84web;
+
+import java.lang.reflect.Constructor;
+
+public class ClassTest {
+    
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class cla=Class.forName("day84web.Student");
+        try {
+            Student stu=(Student)cla.newInstance();
+            System.out.println(stu);//day84web.Student@28a418fc
+//            如果不存在无参数构造方法:NoSuchMethodException
+        } catch (InstantiationException e) {
+            throw new RuntimeException();
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException();
+        }
+    }
+}

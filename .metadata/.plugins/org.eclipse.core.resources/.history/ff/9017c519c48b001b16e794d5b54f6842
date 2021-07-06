@@ -1,0 +1,63 @@
+package servlet;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import entity.Teacher;
+import util.JdbcUtil;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/management/login")
+public class ServletManagementLogin extends HttpServlet {
+
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        Connection con=null;
+        PreparedStatement pre=null;
+        ResultSet set=null;
+        String sql="select * from teacher where tid=? and tpwd=?";
+        Teacher t=null;
+        String tId=req.getParameter("tid");
+        String tPwd=req.getParameter("tpwd");
+        try {
+            con=JdbcUtil.getConnection();
+            pre=con.prepareStatement(sql);
+            pre.setString(1, tId);
+            pre.setString(2, tPwd);
+            set=pre.executeQuery();
+            if(set.next()) {
+                Integer tid=set.getInt("tid");
+                String tname=set.getString("tname");
+                t=new Teacher(tid, tname);
+            }     
+        }catch(SQLException e) {
+            throw new RuntimeException(e);
+        }finally{
+            JdbcUtil.close(con, pre, set);
+        }
+        
+        
+        
+        resp.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html;charset=utf-8");
+        if(t==null) {
+            resp.getWriter().print("<font size='7px' color='red'>登陆失败</font>");
+        }else {
+            resp.getWriter().print("<font size='7px' color='green'>登陆成功</font>");
+            resp.getWriter().print("<font size='7px' color='red'>"+t+"</font>");
+        }
+    }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
+}

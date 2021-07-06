@@ -1,0 +1,14 @@
+package cn.godfery.test;
+
+public class TestOne {
+
+    public static void main(String[] args) {
+        Math math=(int numberA, int numberB)->numberA+numberB;
+
+    }
+
+}
+
+interface Math{
+    int add(int numberA, int numberB);
+}

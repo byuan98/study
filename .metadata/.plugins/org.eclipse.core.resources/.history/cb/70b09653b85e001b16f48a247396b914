@@ -1,0 +1,19 @@
+package test;
+
+public class TestOne {
+
+	public static void main(String[] args) {
+		String s="";
+		for(int number=0;number<4;number++) {
+			int n=(int)(Math.random()*3);
+			if(n==0) {
+				s+=(""+(int)(Math.random()*10));
+			}else if(n==1) {
+				s+=((char)(Math.random()*26+97));
+			}else {
+				s+=((char)(Math.random()*26+65));
+			}
+		}
+		System.out.println(s);
+	}
+}

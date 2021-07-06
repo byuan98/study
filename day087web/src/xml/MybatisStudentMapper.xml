@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 声明区 -->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+
+<mapper namespace="xml.MybatisStudentMapper"> <!-- 数据区 -->
+    
+    <resultMap type="Student" id="studentMap">
+        <!-- id子标签:指定表的主键列于对象对应属性的关系 -->
+        <!-- 子标签的column属性:表的列 -->
+        <!-- 子标签的property属性:对象的属性 -->
+        <!-- 子标签的jdbcType属性:指定列类型 -->
+        <!-- 子标签的javaType属性:指定对象属性的类型 -->
+        <id column="stuid" property="id" jdbcType="INTEGER"/>
+        <!-- result子标签:指定表的非主键列与对象对应属性的关系 -->
+        <!-- 列名与属性名一致的result可以省略 -->
+        <result column="stuname" property="name" javaType="java.lang.String"/>
+        <result column="stusex" property="sex" javaType="java.lang.String"/>
+        <!-- id子标签和result子标签都是在调用set方法给对象的属性赋值 -->
+    </resultMap>
+    <!-- 通过注解@Param("xxx");注解中的xxx需要和占位符名保持一致 -->
+    <select id="getListByMinScoreSex" resultMap="studentMap">
+        select * from student where stuscore> #{score} and stusex=#{sex}
+    </select>
+    
+</mapper>

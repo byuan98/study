@@ -1,0 +1,34 @@
+package day84web;
+
+import java.lang.reflect.Constructor;
+
+public class ClassTest {
+    
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class cla=Class.forName("day84web.Student");
+        Constructor[] conArray=cla.getConstructors();//获取所有public修饰的指定构造方法
+        for(Constructor con:conArray) {
+            System.out.println(con);
+//            public day84web.Student()
+        }
+        
+        conArray=cla.getDeclaredConstructors();//获取任意修饰符的指定的构造方法
+        for(Constructor con:conArray) {
+            System.out.println(con);
+//            day84web.Student(java.lang.Integer,java.lang.String,java.lang.String)
+//            private day84web.Student(java.lang.Integer,java.lang.String)
+//            protected day84web.Student(java.lang.Integer)
+//            public day84web.Student()
+        }
+        
+        
+        try {
+            Constructor con2=cla.getDeclaredConstructor(Integer.class);
+            System.out.println(con2);//protected day84web.Student(java.lang.Integer)
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException();
+        } catch (SecurityException e) {
+            throw new RuntimeException();
+        }
+    }
+}

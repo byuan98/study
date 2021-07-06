@@ -1,0 +1,39 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import entity.Student;
+import util.JdbcUtil;
+
+public class StudentDao implements StudentDaoInter{
+    public ArrayList<Student> getAllStudent() {
+        Connection con=null;
+        PreparedStatement pre=null;
+        ResultSet set=null;
+        String sql="select * from student";
+        ArrayList<Student> allStudent=new ArrayList<Student>();
+        
+        try {
+            con=JdbcUtil.getConnection();
+            pre=con.prepareStatement(sql);
+            set=pre.executeQuery();
+            
+            while(set.next()) {
+                Integer stuid=set.getInt("stuid");
+                String stuname=set.getString("stuname");
+                Double stuscore=set.getDouble("stuscore");
+                allStudent.add(new Student(stuid, stuname, stuscore));
+            }
+        }catch(SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            JdbcUtil.close(con, pre, set);
+        }
+        return allStudent; 
+    }
+    
+}

@@ -1,0 +1,14 @@
+package job;
+
+public class Ticketing {
+
+    public static void main(String[] args) {
+       
+    }
+}
+
+class TicketWindow implements Runnable{//定义一个售票窗口类，实现Runnable接口
+    public void run() {
+        System.out.println();
+    }
+}

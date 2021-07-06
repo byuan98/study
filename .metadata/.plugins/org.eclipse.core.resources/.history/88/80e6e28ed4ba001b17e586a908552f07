@@ -1,0 +1,46 @@
+package cn.godfery.test;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
+
+import cn.godfery.util.OracleJdbcUtil;
+
+public class TestOne {
+    public static void main(String[] args) throws SQLException {
+        executeProcedure();
+    }
+    
+//    通过Java调用存储过程
+    public static void executeProcedure() throws SQLException {
+        Connection con=OracleJdbcUtil.getConnection(); //获取连接
+        String sql="{call package_java_test.pro_test(?, ?, ?)}"; //准备SQL模板
+        CallableStatement call=con.prepareCall(sql); //获取CallableStatement对象
+        
+        call.registerOutParameter(2, Types.INTEGER); //指定out模式参数的数据的类型
+        call.registerOutParameter(3, Types.INTEGER); //指定out模式参数的数据的类型
+        call.setInt(1, 10); //给in模式的参数赋值
+        call.setInt(3, 5); //给in模式的参数赋值
+        
+        call.execute(); //执行SQL语句
+        
+        Integer result1=call.getInt(2);
+        Integer result2=call.getInt(3);
+        
+        System.out.println(result1+"::::::::::"+result2);
+        
+        OracleJdbcUtil.close(con, null, call);
+    }
+    
+//    通过Java调用函数方式1
+    public static void executeFunction1() {
+        
+    }
+
+//    通过Java调用函数方式2
+    public static void executeFunction2() {
+      
+    }
+    
+}

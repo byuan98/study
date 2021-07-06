@@ -1,0 +1,112 @@
+package dao;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.SqlSession;
+
+import entity.Student;
+import mapper.MybatisStudentMapper;
+import util.MybatisUtil;
+
+public class StudentDao implements MybatisStudentMapper{
+
+    public List<Student> getAllStudent() {//获取全部学生
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.getAllStudent();
+    }
+
+    public Student getOneStudentById(Integer stuid) {//按指定学号获取指定学生
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.getOneStudentById(stuid);
+    }
+
+    public Integer updateStudent(Student stu) {//修改学生对象,返回影响行数
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.updateStudent(stu);
+    }
+    
+    public List<Student> getPartStudent(Student stu) {//根据where条件获取部分学生
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.getPartStudent(stu);
+    }
+    
+    public List<Student> getPartStudentByScore(Double lowScore, Double highScore){//根据分数范围获取部分学生
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.getPartStudentByScore(lowScore, highScore);
+    }
+    
+    public List<Student> getOneOrAllStudent(Integer stuid) {//获取一个或全部学生
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.getOneOrAllStudent(stuid);
+    }
+    
+    public List<Student> getPartStudentByFairScore(Double fairScore){//根据一个合理的分数来查询部分学生
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);
+        
+        return studentMapper.getPartStudentByFairScore(fairScore);
+    }
+
+    public Integer updateScoreByParameter(Integer parameter) {//根据参数修改分数,大于0为男生,小于0为女生,0为全部
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);
+        
+        return studentMapper.updateScoreByParameter(parameter);
+    }
+    
+    public Integer addAllStudentParameterList(List<Student> studentList) {//将列表的所有学生批量增加到数据库中
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);
+        
+        return studentMapper.addAllStudentParameterList(studentList);
+    }
+    
+    public List<Student> getAllStudentParameterArray(Integer[] stuidArray){//查询stuidArray数组内的学生
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);
+        
+        return studentMapper.getAllStudentParameterArray(stuidArray);  
+    }
+
+    public List<Student> getAllStudentParameterArrayParam(Integer[] stuidArray) {//查询stuidArray数组内的学生结合注解
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);
+        
+        return studentMapper.getAllStudentParameterArrayParam(stuidArray); 
+    }
+    
+    public List<Student> getAllStudentByScoreTagWhere(Double stuscore) {
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);
+        
+        return studentMapper.getAllStudentByScoreTagWhere(stuscore);
+    }
+    
+    public List<Student> getAllStudentBySexAndScoreTagWhere(String stusex, Double stuscore) {//通过分数与性别获取部分学生结合where标签
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);
+        
+        return studentMapper.getAllStudentBySexAndScoreTagWhere(stuscore);
+    }
+    
+    public static void main(String[] args) {
+        new StudentDao().getAllStudentByScoreTagWhere(95.0);
+    }
+
+
+}

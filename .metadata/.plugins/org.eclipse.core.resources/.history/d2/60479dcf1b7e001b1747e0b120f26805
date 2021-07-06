@@ -1,0 +1,29 @@
+package job;
+
+import java.io.*;
+
+public class Statistics {
+
+    public static void main(String[] args) {
+//        遍历文件夹获取文件夹的总字节数
+        File file=new File("D:\\Code\\34作业\\java_34杨雪峰");
+        System.out.println(statisticsStudentJob(file, 0));
+
+        }
+        
+
+    
+    private static long statisticsStudentJob(File file,long length) {
+        if(file.isFile()) {
+            return file.length();
+        }
+        if(file.isDirectory()) {
+            File[] fileAll=file.listFiles();
+            for(File part:fileAll) {
+                length+=statisticsStudentJob(part.getAbsoluteFile(),length);
+                return length;
+            }
+        }
+        return length;
+    }
+}

@@ -1,0 +1,33 @@
+package com.godfery.text;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.godfery.entity.Student;
+import com.godfery.util.HibernateSessionFactroy;
+
+public class HibernateText {
+    public static void main(String[] args) {
+        Session session=new HibernateSessionFactroy().getSession();//获取Session对象,对应jdbc连接
+        Transaction transaction=session.beginTransaction();//获取事务,只有dml才有事务
+
+        transaction.begin();//开启事务
+        
+//        获取全部
+//        方式1:使用query接口以HQL来进行查询;HQL是一种类SQL的语句,即以面向对象思想去写的SQL语句
+        Query query=session.createQuery("from com.godfery.entity.Student");
+        List<Student> studentList=query.list();
+//        System.out.println(studentList);
+        for(Student stuPart:studentList) {
+            System.out.println(studentPart);
+        }
+        
+        transaction.commit();//提交事务
+        
+        session.close();
+        
+    }
+}

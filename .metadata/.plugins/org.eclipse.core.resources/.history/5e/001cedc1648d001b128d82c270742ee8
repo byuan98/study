@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <%
+    pageContext.setAttribute("pageContext_name", "pageContext_value");
+    pageContext.getRequest().setAttribute("request_name", "request_value");
+    pageContext.getSession().setAttribute("session_name", "session_value");
+    pageContext.getServletContext().setAttribute("application_name", "application_value");
+    
+    out.print(pageContext.getAttribute("pageContext_name")+"<br/>");
+    out.print(pageContext.getRequest().getAttribute("request_name")+"<br/>");
+    out.print(pageContext.getSession().getAttribute("session_name")+"<br/>");
+    out.print(pageContext.getServletContext().getAttribute("application_name")+"<br/>"); 
+  %>
+</body>
+</html>

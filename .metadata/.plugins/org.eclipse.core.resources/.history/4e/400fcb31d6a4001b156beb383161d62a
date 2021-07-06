@@ -1,0 +1,21 @@
+package controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/test1")
+public class TestOne {
+//    如果action参数是单值数据想要实现回显只能把所有的请求参数装入request域中
+    @RequestMapping("/method1")
+    public String method1(Model model, String stuname, Double stuscore) {
+        System.out.println("stuname="+stuname+",stuscore="+stuscore);
+        if(stuname.equals("Godfery")) {
+            return "success1";
+        }
+        model.addAttribute("stuname", stuname);
+        model.addAttribute("stuname", stuscore);
+        return "index1";
+    }
+}

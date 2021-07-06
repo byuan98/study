@@ -1,0 +1,14 @@
+package cn.godfery.text;
+
+public class NineNineTable {
+
+    public static void main(String[] args) {
+        for(Integer multiplierA=1; multiplierA<=9; multiplierA++) {
+            for(Integer multiplierB=1; multiplierB<=multiplierA; multiplierB++) {
+                System.out.print("%d*%d=%-2d"%(multiplierB, multiplierA, multiplierA*multiplierB));
+            }
+        }
+
+    }
+
+}

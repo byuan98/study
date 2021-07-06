@@ -1,0 +1,15 @@
+package test;
+
+public class TestThree {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+    }
+
+}
+class MyThread1 extends Thread{
+    public run() {
+        System.out.println();
+    }
+}

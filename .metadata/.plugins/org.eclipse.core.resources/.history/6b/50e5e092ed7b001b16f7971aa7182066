@@ -1,0 +1,16 @@
+package test;
+
+public class TestThree {
+//  ‘Ÿ’Ω≥µ∆±
+    public static void main(String[] args) {
+
+    }
+}
+
+class Train{
+    static Integer seatId=1;
+}
+
+class Ticketing extends Thread{
+    
+}

@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="entity.Student"  %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP之EL表达式</title>
+</head>
+<body>
+  <!-- 作用1：操作域对象 -->
+  <%
+    pageContext.setAttribute("name1", "value3");
+    pageContext.setAttribute("name2", "value3");
+    
+    requeset.setAttribute();
+  
+  %>
+</body>
+</html>

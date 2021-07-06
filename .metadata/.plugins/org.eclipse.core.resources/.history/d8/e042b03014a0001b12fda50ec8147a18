@@ -1,0 +1,51 @@
+package dao;
+
+import java.util.Date;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import entity.Student;
+import mapper.MybatisStudentMapper;
+import util.MybatisUtil;
+
+public class StudentDao implements MybatisStudentMapper{
+
+    public List<Student> getAllStudent() {//获取全部学生
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.getAllStudent();
+    }
+
+    public Student getOneStudentById(Integer stuid) {//按指定学号获取指定学生
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.getOneStudentById(stuid);
+    }
+
+    public Integer updateStudent(Student stu) {//修改学生对象,返回影响行数
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.updateStudent(stu);
+    }
+    
+    public List<Student> getPartStudent(Student stu) {//根据where条件获取部分学生
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.getPartStudent(stu);
+    }
+
+    public List<Student> getPartStudentByScore(Double lowScore, Double highScore){
+        SqlSession sqlSession=new MybatisUtil().getSqlSession();
+        MybatisStudentMapper studentMapper=sqlSession.getMapper(MybatisStudentMapper.class);//获取指定接口的实现类对象
+        
+        return studentMapper.getPartStudentByScore(lowScore, highScore);
+    }
+    public static void main(String[] args) {
+        new StudentDao().getPartStudentByScore(20.0, 50.0);
+    }
+}

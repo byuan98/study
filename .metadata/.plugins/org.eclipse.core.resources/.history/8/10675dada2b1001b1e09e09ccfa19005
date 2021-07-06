@@ -1,0 +1,68 @@
+package com.godfery.random;
+
+public class RandomImp implements Random{
+    public static void main(String[] args) {
+        System.out.println((int)(Math.random()*2+1));
+    }
+    public String randomName() {
+        String[] surname= {"赵","钱","孙","李"};//姓氏
+        String[] name={"一","二","三","四"};//名字
+        String randomName=surname[(int)(Math.random()*surname.length)];
+        int count=(int)(Math.random()*2+1);
+        for(int number=0;number<count;number++) {
+            randomName+=name[(int)(Math.random()*name.length)];
+        }
+        return randomName;
+    }
+
+    public String randomSex() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public String[] randomAgeAndWork() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public String randomSleepTime() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public String randomReason() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public String randomSleepTimeBegin() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public String randomSleepTimeLong() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public String randomIsSleep() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public String randomIsBig() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public String randomIsReson() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public String randomWay() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+}

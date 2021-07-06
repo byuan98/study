@@ -1,0 +1,130 @@
+package code;
+
+import java.io.*;
+
+public class FileTest {
+//  文件测试
+	public static void main(String[] args) {
+//		createNewFileTest();
+//		deleteTest();
+//		existsTest();
+//		getAbsolutePathTest();
+//		getNameTest();
+//		getPathTest();
+//		isDirectoryTest();
+//		isFileTest();
+		lengthTest();
+	}
+
+	private static void createNewFileTest() {//createNewFile()方法测试
+//		boolean createNewFile();//当且仅当不存在该文件时创建新文件,但不能用于创建文件夹
+		File fileTest1=new File("D://Code//FileTest//fileTest1");
+//		File fileTest2=new File("");
+		try {
+			System.out.println(fileTest1.createNewFile());//创建成功则返回true
+//			System.out.println(fileTest2.createNewFile());//创建成功则返回true
+		} catch (IOException e) {//该方法需要进行异常处理,可能会抛出IOException
+			e.printStackTrace();
+		}
+//		创建失败的可能性：
+//			1、需要创建的文件已存在；
+//			2、系统找不到创建文件的指定的路径
+//			如：File fileTest2=new File("");
+	}
+	
+	private static void deleteTest() {//delete()方法测试
+//		boolean delete();//删除文件/文件夹;删除文件夹时文件夹必须为空
+		File fileTest1=new File("D://Code//FileTest//fileTest1");
+		System.out.println(fileTest1.delete());
+	}
+	
+	private static void existsTest() {//existsTest()方法测试
+//		boolean exists();//判断文件/文件夹是否存在
+		File fileTest1=new File("D://Code//FileTest//fileTest1");
+		System.out.println(fileTest1.exists());
+	}
+	
+	private static void getAbsolutePathTest() {//getAbsolutePath()方法测试
+//		String getAbsolutePathTest();//如果此抽象路径名已经是绝对路径名，则返回该路径名字符串，这与 getPath() 方法一样。如果此抽象路径名是空抽象路径名，则返回当前用户目录的路径名字符串
+		File fileTest1=new File("D://Code//FileTest//fileTest1");
+		File fileTest2=new File("");
+		File fileTest3=new File("ThrowableRecurrent.java");
+		System.out.println(fileTest1.getAbsolutePath());//D:\Code\FileTest\fileTest1
+		System.out.println(fileTest2.getAbsolutePath());//D:\Code\Java\study\day40
+		System.out.println(fileTest3.getAbsolutePath());//D:\Code\Java\study\day40\ThrowableRecurrent.java
+		
+	}
+	
+	private static void getNameTest() {//getName()方法测试
+//		String getName();//此抽象路径名表示的文件或目录的名称；如果路径名的名称序列为空，则返回空字符串
+		File fileTest1=new File("D://Code//FileTest//fileTest1");
+		File fileTest2=new File("");
+		File fileTest3=new File("D://Code//FileTest//");
+		System.out.println(fileTest1.getName());//fileTest1
+		System.out.println(fileTest2.getName());// 
+		System.out.println(fileTest3.getName());//FileTest
+	}
+	
+	private static void getPathTest() {//getPath()方法测试
+//		String getPath();//获取创建File对象时构造方法的参数列表,将其转化为一个字符串进行返回
+		File fileTest1=new File("D://Code//FileTest//fileTest1");
+		File fileTest2=new File("ThrowableRecurrent.java");
+		File fileTest3=new File("");
+		System.out.println(fileTest1.getPath());//D:\Code\FileTest\fileTest1
+		System.out.println(fileTest2.getPath());//ThrowableRecurrent.java
+		System.out.println(fileTest3.getPath());// 
+
+	}
+	
+	private static void isDirectoryTest() {//isDirectory()方法测试
+//		boolean isDirectory();//判断该路径指向的是否为目录
+		File fileTest1=new File("D://Code//FileTest");
+		File fileTest2=new File("Z://Code//FileTest1234");//一个不存在的文件目录
+		File fileTest3=new File("ThrowableRecurrent.java");
+		File fileTest4=new File("ThrowableRecurrent123.java");//一个不存在的文件
+		File fileTest5=new File("");
+		System.out.println(fileTest1.isDirectory());//true
+		System.out.println(fileTest2.isDirectory());//false//不存在的文件目录返回了false
+		System.out.println(fileTest3.isDirectory());//false
+		System.out.println(fileTest4.isDirectory());//false//不存在的文件返回了false
+		System.out.println(fileTest5.isDirectory());//false
+		
+//		isDirectory的判断与文件是否存在没有关系
+		
+	}
+	
+	private static void isFileTest() {//isFile()方法测试
+//		boolean isFile();//判断是否为文件,必须得是完整的路径才能进行判断
+		File fileTest1=new File("D://Code//FileTest//fileTest1");
+		File fileTest2=new File("Z://Code//FileTest1234");//一个不存在的文件目录
+		File fileTest3=new File("ThrowableRecurrent.java");
+		File fileTest4=new File("ThrowableRecurrent123.java");//一个不存在的文件
+		File fileTest5=new File("");
+		File fileTest6=new File("D:\\Code\\Java\\study\\day40\\src\\code\\test");
+		File fileTest7=new File("test");
+		System.out.println(fileTest1.isFile());//true
+		System.out.println(fileTest2.isFile());//false
+		System.out.println(fileTest3.isFile());//false
+		System.out.println(fileTest4.isFile());//false
+		System.out.println(fileTest5.isFile());//false
+		System.out.println(fileTest6.isFile());//true
+		System.out.println(fileTest7.isFile());//false
+
+	}
+	
+	private static void lengthTest() {//length()方法测试
+//		long length();//获取文件的字节数且该方法只能获取文件的字节数
+		File fileTest1=new File("D://Code//FileTest//fileTest1");
+		File fileTest2=new File("D://Code//FileTest");
+		File fileTest3=new File("");
+		System.out.println(fileTest1.length());
+		System.out.println(fileTest2.length());
+		System.out.println(fileTest3.length());
+		
+		
+	}
+
+//	private static void 
+	
+}
+

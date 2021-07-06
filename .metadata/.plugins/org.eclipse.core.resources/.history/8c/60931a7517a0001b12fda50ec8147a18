@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 声明区 -->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+
+<mapper namespace="mapper.MybatisStudentMapper"> <!-- 数据区 -->
+    
+    <resultMap type="Student" id="studentMap">
+        <!-- id子标签:指定表的主键列于对象对应属性的关系 -->
+        <!-- 子标签的column属性:表的列 -->
+        <!-- 子标签的property属性:对象的属性 -->
+        <!-- 子标签的jdbcType属性:指定列类型 -->
+        <!-- 子标签的javaType属性:指定对象属性的类型 -->
+        <id column="stuid" property="id" jdbcType="INTEGER"/>
+        <!-- result子标签:指定表的非主键列与对象对应属性的关系 -->
+        <!-- 列名与属性名一致的result可以省略 -->
+        <!-- <result column="stuname" property="name" javaType="java.lang.String"/> -->
+        <!-- <result column="stusex" property="sex" javaType="java.lang.String"/> -->
+        <!-- id子标签和result子标签都是在调用set方法给对象的属性赋值 -->
+    </resultMap>
+    
+    <!-- Integer updateStudent(Student stu);//修改学生信息,返回所影响的行数 -->
+    <update id="updateStudent" parameterType="Student">
+        update student set 
+        <!-- 标签的test属性中提到的变量必须是参数对象的属性 -->
+        <if test="stuname != null">
+            stuname=#{stuname},
+        </if>
+        <if test="stusex != null">
+            stusex=#{stusex},
+        </if>
+        <if test="stuscore != null">
+            stuscore=#{stuscore},
+        </if>
+        <if test="stubirthday != null">
+            stubirthday=#{stubirthday}
+        </if>
+        where stuid=#{stuid}
+        <!-- 这段代码有个问题,如果stubirthday没有值,上面的片段就会多一个逗号,
+             后面的trim标签可以解决这个问题
+         -->
+    </update>
+    
+    <!-- List<Student> getPartStudent(Student stu);//根据where条件获取部分学生 -->
+    <!-- 条件查询,那个有值那个就作为条件 -->
+    <select id="getPartStudent" resultType="Student">
+        select * from student where 1=1  <!-- 每个语句之前都有一个and,这里我们设置一个始终成立的条件来帮助拼凑and -->
+        <!-- 一开始我的想法是添加一个stuid的条件,但转念一想,这个按照id查取一个学生没有区别
+        <if test="stuid != null">
+            stuid=#{stuid},
+        </if> -->
+        <if test="stuname != null">
+            and stuname=#{stuname}
+        </if>
+        <if test="stusex != null">
+            and stusex=#{stusex}
+        </if>
+        <if test="stuscore != null">
+            and stuscore=#{stuscore}
+        </if>
+        <if test="stubirthday != null">
+            and stubirthday=#{stubirthday}
+        </if>
+    </select>
+    
+    <!-- List<Student> getPartStudentByScore(Double lowScore, Double highScore);//根据分数范围来获取部分学生 -->
+    <!-- 如果参数列表内参数只有一个单值数据,test可以使用_parameter来表示参数的值 -->
+    <!-- 如果参数列表内参数有多个单值数据,test使用param1、param2...来表示参数的值 -->
+    <select id="getPartStudentByScore" resultType="Student">
+        select * from student where 1=1
+        <if test="param1 != null">
+            and stuscore &gt; #{0} <!-- 字符实体 &gt; > -->
+        </if>
+        <if test="param2 != null">
+            and stuscore &lt; #{1} <!-- 字符实体 &lt; < -->
+        </if>
+    </select>
+    
+    <!-- List<Student> getOneOrAllStudent(Integer stuid);//获取一个或全部学生 -->
+    <select id="getOneOrAllStudent" resultType="Student">
+        select * from student where 1=1
+        <if test="_parameter != null">
+            and stuid=#{stuid}
+        </if>
+    </select>
+</mapper>

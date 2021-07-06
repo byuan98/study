@@ -1,0 +1,18 @@
+package com.godfery.text;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.godfery.util.HibernateSessionFactroy;
+
+public class HibernateText {
+    public static void main(String[] args) {
+//        获取Session对象,对应jdbc连接
+        Session session=new HibernateSessionFactroy().getSession();
+//        获取事务,只有dml才有事务
+        Transaction tr=session.beginTransaction();
+        
+        Student 
+        
+    }
+}

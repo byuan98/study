@@ -1,0 +1,14 @@
+package com.godfery.test;
+
+import java.io.UnsupportedEncodingException;
+
+public class TestOne {
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        String str="张";
+        byte[] bytes=str.getBytes("UTF-8");
+        for(byte bytePart:bytes) {
+            System.out.println(bytePart);
+        }
+        System.out.println(new String(new byte[] {-27,-68,-100}));
+    }
+}

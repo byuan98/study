@@ -1,0 +1,19 @@
+package test;
+
+import java.io.*;
+
+public class TestTwo {
+//    完成文件目录的遍历
+    public static void main(String[] args) {
+        ergodicFile("D:\\Code\\FileTest");
+        
+    }
+    
+    private static void ergodicFile(String path) {
+        File file=new File(path);
+        if(file.exists()!=true) {
+            throw new RuntimeException("该文件不存在");
+        }
+    }
+
+}

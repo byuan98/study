@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+    <!-- 指定类名和表名 -->
+    <class name="com.godfery.entity.AutoTable" table="autotable">
+        <!-- 指定主键列对应的属性 -->
+        <id column="autid" name="autid" type="int">
+            <generator class="identity"/>
+        </id>
+        <property name="autname" column="autname" type="string"/>
+    </class>
+</hibernate-mapping>

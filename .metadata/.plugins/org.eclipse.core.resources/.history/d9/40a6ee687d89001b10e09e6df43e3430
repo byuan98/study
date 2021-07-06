@@ -1,0 +1,98 @@
+package servlet;
+
+import util.JdbcUtil;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import entity.StuLogin;
+
+public class ServletLogin extends HttpServlet{
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        
+        req.setCharacterEncoding("utf-8");
+        String sname=req.getParameter("sname");
+        String spwd=req.getParameter("spwd");
+        
+        Connection con=null;
+        PreparedStatement pre=null;
+        StuLogin stu=null;
+        ResultSet set=null;
+        String sql="select * from stulogin where sname=? and spwd=?";
+        try {
+            con=JdbcUtil.getConnection();
+            pre=con.prepareStatement(sql);
+            pre.setString(1, sname);
+            pre.setString(2, spwd);
+            set=pre.executeQuery();
+            
+            if(set.next()) {
+                int sid=set.getInt("sid");
+                stu=new StuLogin(sid,sname);
+            }
+            
+            
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            JdbcUtil.close(con, pre, set);
+        }
+        resp.setContentType("text/html;charset=utf-8");
+        resp.setCharacterEncoding("utf-8");
+        
+        if(stu==null) {
+            resp.getWriter().print("<font size='7px' color='red'>登陆失败</font>");
+        }else {
+            resp.getWriter().print("<font size='7px' color='green'>登陆成功</font>");
+        }
+//        req.setCharacterEncoding("utf-8");        
+//        resp.setContentType("text/html;charset=utf-8");
+//        resp.setCharacterEncoding("utf-8");
+//        
+//        Connection con=null;
+//        PreparedStatement pre=null;
+//        ResultSet set=null;
+//        StuLogin stu=null;
+//        String sql="select * from stulogin where sname=? and spwd=?";
+//        
+//        String sname=req.getParameter("sname");
+//        String spwd=req.getParameter("spwd");
+//        
+//        try {
+//            con=JdbcUtil.getConnection();
+//            pre=con.prepareStatement(sql);
+//            pre.setString(1, sname);
+//            pre.setString(2, spwd);
+//            set=pre.executeQuery();
+//            
+//            if(set.next()) {
+//                Integer sId=set.getInt("sid");
+//                stu=new StuLogin(sId, sname);
+//            }            
+//        }catch(SQLException e) {
+//            throw new RuntimeException(e);
+//        }finally {
+//            JdbcUtil.close(con, pre, set);
+//        }
+//        if(stu==null) {
+//            resp.getWriter().print("<font size='7px' color='red'>登陆失败</font>");
+//        }else {
+//            resp.getWriter().print("<font size='7px' color='green'>登陆成功</font>");
+//            resp.getWriter().print("<font size='7px' color='red'>"+stu+"</font>");
+//        }
+//    }
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
+    
+}

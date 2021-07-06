@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+    <!-- 指定类名和表名 -->
+    <class name="com.godfery.entity.Teacher" table="teacher">
+        <!-- 指定主键列对应的属性 -->
+        <id name="teaid" column="teaid" type="int">
+            <generator class="identity"/><!-- 主键自增方式:数据库自增 -->
+        </id>
+        <property name="teaname" column="teaname" type="string"/>
+        <property name="teasubject" column="teasubject" type="string"/>
+        
+        <!-- 使用set标签的ont to many实现一对多 -->
+        <set name="stuSet" lazy="false" cascade="all">
+            <key column="teaid"/>
+            <one-to-many class="com.godfery.entity.Student"/>
+        </set>
+        
+    </class>
+</hibernate-mapping>

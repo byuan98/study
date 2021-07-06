@@ -1,0 +1,33 @@
+package day84web;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+public class ClassTest {
+//    测试:结合属性集文件获取Class类型对象
+    private static String className1="";
+    static {
+        Properties pros=new Properties();//创建一个属性集对象
+        try {
+            FileInputStream fin=new FileInputStream("src/day84web/ClassName.properties");//创建流关联配置文件
+            pros.load(fin);
+            className1=pros.getProperty("className1");
+            fin.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException();
+        } catch (IOException e) {
+            throw new RuntimeException();
+        }
+        
+    }
+    public static void main(String[] args) {
+        try {
+            Class cla=Class.forName(className1);
+            System.out.println(cla);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException();
+        }
+    }
+}

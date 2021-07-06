@@ -1,0 +1,25 @@
+package test;
+
+import java.util.*;
+
+public class TestOne {
+
+    public static void main(String[] args) {
+        System.out.println(codes("Yes i do"));
+
+    }
+    
+    private static String codes(String str) {
+        String s="";
+        char[] c=str.toCharArray();
+        for(int i=s.length()-1;i>=0;i--) {
+            System.out.println("s");
+            s+=c[i];
+        }
+        System.out.println(s);
+        return s;
+    }
+
+}
+
+

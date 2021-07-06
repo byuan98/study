@@ -1,0 +1,19 @@
+package test;
+
+public class TestOne {
+
+	public static void main(String[] args) {
+		for(int number=0;;number++) {
+			
+			System.out.println((int)(Math.random()*1000)/10.0);
+			if((int)(Math.random()*1000)/10.0==99.9) {
+				System.out.println(99.9);
+				break;
+			}
+			//System.out.println((int)(Math.random()*1000)/10.0);
+			
+		}
+
+	}
+
+}

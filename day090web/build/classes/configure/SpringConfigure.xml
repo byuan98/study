@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <!-- xsd文件对当前xml文件进行语法检查 ：规定有哪些标签 有哪些属性 标签的嵌套关系-->
+    <bean name="stu1" class="entity.Student"><!-- 每个bean标签对应一个类 -->
+          <!-- Integer stuid; String stuname; String stusex; Double stuscore; -->
+          <property name="stuid" value="2021001"/>
+          <property name="stuname" value="Godfery"/>
+          <property name="stusex" value="男"/>
+          <property name="stuscore" value="98.5"/>
+    </bean>
+    
+    <!-- public Student(Integer stuid, String stuname, String stusex, Double stuscore) -->
+    <!-- index:参数的位置索引,索引从0开始;type:参数类型;value:参数值 -->
+    <bean name="stu2" class="entity.Student">
+        <constructor-arg index="0" type="java.lang.Integer" value="2021002"/>
+        <constructor-arg index="1" type="java.lang.String" value="Echo"/>
+        <constructor-arg index="2" type="java.lang.String" value="女"/>
+        <constructor-arg index="3" type="java.lang.Double" value="87.3"/>
+    </bean>
+    
+    <!-- public Student(Integer stuid, String stuname, String stusex, Double stuscore) -->
+    <!-- index可以省略但是必须保证constructor-arg标签的顺序与参数列表保持一致;type:参数类型;value:参数值 -->
+    <bean name="stu3" class="entity.Student">
+        <constructor-arg type="java.lang.Integer" value="2021003"/>
+        <constructor-arg type="java.lang.String" value="Ali"/>
+        <constructor-arg type="java.lang.String" value="男"/>
+        <constructor-arg type="java.lang.Double" value="89.6"/>
+    </bean>
+</beans>

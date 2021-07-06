@@ -1,0 +1,23 @@
+package cn.godfery.util;
+
+import java.sql.SQLException;
+
+public class JdbcUtil {
+    private static final String DRIVER_NAME;
+    private static final String URL;
+    private static final String USER_NAME;
+    private static final String PASSWORD;
+    
+    static {
+        DRIVER_NAME="oracle.jdbc.driver.OracleDriver";
+        URL="jdbc:oracle:thin:@192.168.133.139:1521/orcl";
+        USER_NAME="scott";
+        PASSWORD="root";
+        
+        try {
+            Class.forName(DRIVER_NAME);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

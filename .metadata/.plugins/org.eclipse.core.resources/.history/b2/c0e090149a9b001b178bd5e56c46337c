@@ -1,0 +1,13 @@
+package day84web;
+
+public class ClassTest {
+//    测试:获取Student的字节码文件对象
+    public static void main(String[] args) {
+//        方式1:类名.class属性
+        Class cla1=Student.class;
+        
+//        方式2:对象的getClass()方法
+        
+        Class cla2=
+    }
+}

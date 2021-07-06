@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 声明区 -->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+
+<mapper namespace="com.godfery.mapper.MybatisGradeMapper"> <!-- 数据区 -->
+    <!-- 获取全部 -->
+    <select id="getAllGrade" resultType="Grade">
+        select * from grade
+    </select>
+    
+    <!-- 1对n解决方案2:连接查询 -->
+    <resultMap type="Grade" id="gradeMap">
+        <!-- 指定列封装为Grade -->
+        <id column="graid" property="graid"/>
+        <result column="graname" property="graname"/>
+        
+        <!-- collection标签指定对应的属性是集合 -->
+        <!-- property//属性名 column//主表的主键名 select//获取n是要执行的select标签的id ofType//集合元素的类型 -->
+        <collection property="stuList" ofType="Student">
+        <!-- 指定把结果及中那些列封装为Student装入List设置给stuList -->
+            <id column="stuid" property="stuid"/>
+            <result column="stuname" property="stuname"/>
+            <result column="graid" property="graid"/>
+        </collection>
+    </resultMap>
+    <select id="getGradeByGraid" resultMap="gradeMap">
+        select * from grade gra left join student stu on gra.graid=stu.graid where gra.graid=#{graid}
+    </select>
+    
+</mapper>

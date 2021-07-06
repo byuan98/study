@@ -1,0 +1,11 @@
+package entity;
+
+public class text {
+
+    public static void main(String[] args) {
+        Student stu=new Student();
+        System.out.println(stu);
+
+    }
+
+}

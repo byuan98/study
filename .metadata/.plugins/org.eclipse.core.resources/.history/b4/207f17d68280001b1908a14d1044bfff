@@ -1,0 +1,14 @@
+package test;
+
+import java.io.*;
+import java.util.*;
+
+public class TestOne {
+//    UDP网络传输之发送方
+    public static void main(String[] args) {
+//        1、创建UDP的socket，指定开启的端口
+//        2、创建一个DatagramPackage封装要发送的信息
+//        3、通过socket把数据报包发出去
+//        4、关闭socket
+    }
+}

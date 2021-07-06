@@ -1,0 +1,5 @@
+package com.godfery.mapper;
+
+public class MybatisStudentMapper {
+
+}

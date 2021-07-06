@@ -1,0 +1,15 @@
+package cn.godfery.util;
+
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+public class PoiUtil {
+    
+//    写一个excel
+    public static void createExcel(String fileName)throws Exception {
+        HSSFWorkbook book=new HSSFWorkbook(); //创建一个HSSFWorkbook对象
+        
+        HSSFSheet sheet=book.createSheet("学生成绩"); //创建一个sheet
+       
+    }
+}

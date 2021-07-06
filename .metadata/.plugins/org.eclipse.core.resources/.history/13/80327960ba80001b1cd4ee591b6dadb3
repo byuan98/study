@@ -1,0 +1,11 @@
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>JavaScript与HTML结合方式一：内部JavaScript代码</title>
+    </head>
+    <script type="text/javascript">
+        alert("Hello, world!")//弹出框
+    </script>
+    <body>
+    </body>
+</html>

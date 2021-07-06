@@ -1,0 +1,16 @@
+package controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/test")
+public class TestTwo {
+    @RequestMapping("/methodone.action")
+    public String methodOne(Model model) {
+        model.addAttribute("aa","aa_value_one");
+        System.out.println("public String methodOne(Model model)");
+        return "/jsps/index";
+    }
+}

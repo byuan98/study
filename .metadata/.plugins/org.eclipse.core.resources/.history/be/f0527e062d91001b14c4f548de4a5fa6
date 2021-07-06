@@ -1,0 +1,15 @@
+package dao;
+
+import java.util.ArrayList;
+
+import entity.Student;
+
+public class text {
+
+    public static void main(String[] args) {
+        ArrayList<Student> list=new StudentDao().getAllStudent();
+        System.out.println(list);
+
+    }
+
+}

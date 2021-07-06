@@ -1,0 +1,15 @@
+package test;
+
+import java.io.*;
+import java.net.*;
+
+public class TestFive {
+//  UDP连接测试之接收方
+    public static void main(String[] args) throws SocketException {
+//        1、创建UDP的socket：指定开启的端口
+        DatagramSocket socket=new DatagramSocket(12321);//SocketException
+        
+
+    }
+
+}

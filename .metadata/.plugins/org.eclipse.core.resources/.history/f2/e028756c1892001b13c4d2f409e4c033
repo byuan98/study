@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>原生态的Ajax</title>
+</head>
+  <script type="text/javascript" src="<core:url value='/js/jquery-1.6.4.min.js'/>"></script>
+  <script type="text/javascript">
+  //Ajax核心思路：把数据通过Ajax发送给Servlet，把servlet响应的信息写到span_name；步骤如下：
+    $(function(){
+    	$("input[name='name_get']").bind("blur",function(){
+    		var name=$(this).val();
+    		//1、获取XMLHttpRequest对象
+    		var xmlHttpRequest;
+    		try{
+    			xmlHttpRequest=new XMLHttpRequest();//非IE浏览器的获取方式
+    		}catch(e){
+    			try{
+    				xmlHttpRequest=new ActiveXObject("Microsoft.XMLHTTP");//IE5以后的浏览器
+    			}catch(e){
+    				xmlHttpRequest=new ActiveXObject("Msxm12.XMLHTTP");//IE5以前的浏览器
+    			}
+    		}
+    		//2、调用open方法开启连接
+    		xmlHttpRequest.open("GET", "<core:url value=''"/>");
+    	})
+    });
+  </script>
+<body>
+  <form action="" enctype="application/x-www-form-urlencoded"></form>
+  get请求：<input type="text" name="name_get" value="请输入用户名"/><span id="span_name_get"></span><br/>
+  post请求：<input type="text" name="name_post" value="请输入用户名"/><span id="span_name_post"></span>
+</body>
+</html>

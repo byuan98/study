@@ -1,0 +1,16 @@
+package com.godfery.entity;
+
+import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Grade implements Serializable{
+    private Integer graid;
+    private String graname;
+    
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 声明区 -->
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+
+<mapper namespace="com.godfery.mapper.MybatisStudentMapper"> <!-- 数据区 -->
+    
+    <resultMap type="Student" id="studentMap">
+        <!-- 如果属性名与表字段一致,可以省略id和result标签,但不写会为null -->
+        <id column="stuid" property="stuid"/>
+        <result column="stuname" property="stuname"/>
+        <result column="graid" property="graid"/>
+
+        <!-- association对应的是一个引用数据类型 -->
+        <!-- 封装为一个grade对象 -->
+        <association property="grade" javaType="Grade">
+            <!-- 如果属性名与表字段一致,可以省略id和result标签 -->
+            <id column="graid" property="graid"/>
+            <result column="graname" property="graname"/>
+        </association>
+    </resultMap>
+    
+    <select id="getOneStudentByid" resultMap="studentMap">
+        select * from student stu left join grade gra on stu.graid=gra.graid where stuid=#{stuid}
+    </select>
+
+</mapper>

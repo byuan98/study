@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+    <!-- 指定类名和表名 -->
+    <class name="com.godfery.entity.Community" table="community">
+        <!-- 指定主键列对应的属性 -->
+        <id column="comid" name="comid" type="int">
+            <generator class="identity"/>
+        </id>
+        <property name="comname" column="comname" type="string"/>
+        <set name="stuSet" table="com_stu">
+            <key column="comid"/>
+            <many-to-many column="stuid" class="com.godfery.entity.Student"/>
+        </set>
+    </class>
+</hibernate-mapping>
